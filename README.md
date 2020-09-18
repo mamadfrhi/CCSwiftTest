@@ -10,7 +10,7 @@ Requirements:
 - User can take snapshots of the view
 - The snapshots and user positions can be viewed in a different view
 
-obj: https://raw.githubusercontent.com/CubiCasa/CCSwiftTest/master/untitled.obj
+obj: https://raw.githubusercontent.com/CubiCasa/CCSwiftTest/master/untitled.obj  
 mtl: https://raw.githubusercontent.com/CubiCasa/CCSwiftTest/master/untitled.mtl
 
 ![Example](Untitled.png)
