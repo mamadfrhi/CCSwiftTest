@@ -9,5 +9,5 @@ Requirements:
 - User can take snapshots of the view
 - The snapshots and user positions can be visualized in different view
 
-![Example](example.png)
+![Example](Untitled.png)
 
