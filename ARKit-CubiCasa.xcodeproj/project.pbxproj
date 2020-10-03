@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		648DA6B194AFBEECE146C4FB /* Pods_ARKit_CubiCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2057F4E3B7B6123AEDCD35 /* Pods_ARKit_CubiCasa.framework */; };
 		87860BB52528777C00DC6732 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* MainView.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* MainController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A2057F4E3B7B6123AEDCD35 /* Pods_ARKit_CubiCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARKit_CubiCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87860BB42528777C00DC6732 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		87AE568925285C12006F0590 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		87AE568B25285DCA006F0590 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		87AE568E25285E75006F0590 /* Object3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object3D.swift; sourceTree = "<group>"; };
+		AA8B40E370A4FD098C1D5046 /* Pods-ARKit-CubiCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-CubiCasa.release.xcconfig"; path = "Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa.release.xcconfig"; sourceTree = "<group>"; };
+		C02CC1C3B47E083766B265D0 /* Pods-ARKit-CubiCasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-CubiCasa.debug.xcconfig"; path = "Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,12 +39,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				648DA6B194AFBEECE146C4FB /* Pods_ARKit_CubiCasa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A76A76EF61CCCFE15523DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A2057F4E3B7B6123AEDCD35 /* Pods_ARKit_CubiCasa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5B9F40D8A5B6BDCD5A3467C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C02CC1C3B47E083766B265D0 /* Pods-ARKit-CubiCasa.debug.xcconfig */,
+				AA8B40E370A4FD098C1D5046 /* Pods-ARKit-CubiCasa.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8728773A25286954007B322B /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +97,8 @@
 				87AE567425285A76006F0590 /* ARKit-CubiCasa */,
 				8728773C25286975007B322B /* Resources */,
 				87AE567325285A76006F0590 /* Products */,
+				5B9F40D8A5B6BDCD5A3467C7 /* Pods */,
+				4A76A76EF61CCCFE15523DF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87AE568625285A77006F0590 /* Build configuration list for PBXNativeTarget "ARKit-CubiCasa" */;
 			buildPhases = (
+				FA35750FD375ED19BF26C13A /* [CP] Check Pods Manifest.lock */,
 				87AE566E25285A76006F0590 /* Sources */,
 				87AE566F25285A76006F0590 /* Frameworks */,
 				87AE567025285A76006F0590 /* Resources */,
+				C35112615CBD417E61A9F8DA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +204,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C35112615CBD417E61A9F8DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA35750FD375ED19BF26C13A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARKit-CubiCasa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87AE566E25285A76006F0590 /* Sources */ = {
@@ -322,6 +391,7 @@
 		};
 		87AE568725285A77006F0590 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C02CC1C3B47E083766B265D0 /* Pods-ARKit-CubiCasa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -340,6 +410,7 @@
 		};
 		87AE568825285A77006F0590 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA8B40E370A4FD098C1D5046 /* Pods-ARKit-CubiCasa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
