@@ -8,21 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
-		87AE567825285A76006F0590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* ViewController.swift */; };
-		87AE567A25285A76006F0590 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567925285A76006F0590 /* Experience.rcproject */; };
+		87AE567825285A76006F0590 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* MainController.swift */; };
 		87AE567D25285A76006F0590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567B25285A76006F0590 /* Main.storyboard */; };
 		87AE567F25285A77006F0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567E25285A77006F0590 /* Assets.xcassets */; };
-		87AE568225285A77006F0590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AE568025285A77006F0590 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		87AE567725285A76006F0590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		87AE567925285A76006F0590 /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
+		87AE567725285A76006F0590 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		87AE567C25285A76006F0590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87AE567E25285A77006F0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		87AE568125285A77006F0590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87AE568325285A77006F0590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,11 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				87AE567525285A76006F0590 /* AppDelegate.swift */,
-				87AE567725285A76006F0590 /* ViewController.swift */,
-				87AE567925285A76006F0590 /* Experience.rcproject */,
+				87AE567725285A76006F0590 /* MainController.swift */,
 				87AE567B25285A76006F0590 /* Main.storyboard */,
 				87AE567E25285A77006F0590 /* Assets.xcassets */,
-				87AE568025285A77006F0590 /* LaunchScreen.storyboard */,
 				87AE568325285A77006F0590 /* Info.plist */,
 			);
 			path = "ARKit-CubiCasa";
@@ -125,7 +119,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87AE568225285A77006F0590 /* LaunchScreen.storyboard in Resources */,
 				87AE567F25285A77006F0590 /* Assets.xcassets in Resources */,
 				87AE567D25285A76006F0590 /* Main.storyboard in Resources */,
 			);
@@ -138,9 +131,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87AE567825285A76006F0590 /* ViewController.swift in Sources */,
+				87AE567825285A76006F0590 /* MainController.swift in Sources */,
 				87AE567625285A76006F0590 /* AppDelegate.swift in Sources */,
-				87AE567A25285A76006F0590 /* Experience.rcproject in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,14 +145,6 @@
 				87AE567C25285A76006F0590 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		87AE568025285A77006F0590 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87AE568125285A77006F0590 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
