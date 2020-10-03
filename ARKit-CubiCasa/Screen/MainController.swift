@@ -12,6 +12,17 @@ import RealityKit
 class MainController: UIViewController {
     
     //---------------------
+    // MARK: Init
+    //---------------------
+    init(network: NetworkService) {
+        self.network = network
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //---------------------
     // MARK: State Management
     // Observer Design Pattern
     // TODO: Do it with RxSwift OR Move the logic to the another class
@@ -32,17 +43,13 @@ class MainController: UIViewController {
         }
     }
     
-    
-    
-    
-    
     //---------------------
     // MARK: Variables
     //---------------------
     private let mainView = MainView()
-    
-    private let network = Network()
     private var objectToAdd: ModelEntity? = nil
+    // Dependency
+    private let network: NetworkService
     
     
     //---------------------
@@ -76,3 +83,6 @@ class MainController: UIViewController {
         }
     }
 }
+
+
+
