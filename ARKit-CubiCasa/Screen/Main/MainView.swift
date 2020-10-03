@@ -35,6 +35,12 @@ class MainView: UIView {
             $0.top.left.bottom.right.equalToSuperview()
         }
         
+        // Coaching View
+        self.addSubview(coachView)
+        coachView.snp.makeConstraints {
+            $0.top.left.bottom.right.equalToSuperview()
+        }
+        
         // Add Buttons
         // Drop Button
         self.addSubview(dropObjectButton)
@@ -51,11 +57,7 @@ class MainView: UIView {
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
         }
         
-        // Coaching View
-        self.addSubview(coachView)
-        coachView.snp.makeConstraints {
-            $0.top.left.bottom.right.equalToSuperview()
-        }
+        
         
         // Label
         self.addSubview(statusLabel)
