@@ -112,6 +112,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		874003F02528B65C008FEE06 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		87AE566925285A76006F0590 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +141,7 @@
 		87AE567425285A76006F0590 /* ARKit-CubiCasa */ = {
 			isa = PBXGroup;
 			children = (
+				874003F02528B65C008FEE06 /* CustomViews */,
 				8728773A25286954007B322B /* App */,
 				8728773B25286965007B322B /* Screen */,
 				87AE569025285EA0006F0590 /* Network */,

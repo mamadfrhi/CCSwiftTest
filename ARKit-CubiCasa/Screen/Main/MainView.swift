@@ -105,6 +105,7 @@ class MainView: UIView {
 }
 
 class RoundedImageView: UIImageView {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         // Make Border
@@ -116,5 +117,8 @@ class RoundedImageView: UIImageView {
         
         // Colors
         self.backgroundColor = .white
+        
+        // Enable interaction
+        self.isUserInteractionEnabled = true
     }
 }
