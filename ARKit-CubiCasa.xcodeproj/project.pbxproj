@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		648DA6B194AFBEECE146C4FB /* Pods_ARKit_CubiCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2057F4E3B7B6123AEDCD35 /* Pods_ARKit_CubiCasa.framework */; };
+		8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87260689252898B400C828F3 /* MainCoordinator.swift */; };
+		8726068C252898B400C828F3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726068A252898B400C828F3 /* Coordinator.swift */; };
 		87860BB52528777C00DC6732 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* MainView.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* MainController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		4A2057F4E3B7B6123AEDCD35 /* Pods_ARKit_CubiCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARKit_CubiCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87260689252898B400C828F3 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8726068A252898B400C828F3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,9 +65,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		87260688252898B400C828F3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				87260689252898B400C828F3 /* MainCoordinator.swift */,
+				8726068A252898B400C828F3 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		8728773A25286954007B322B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				87260688252898B400C828F3 /* Coordinator */,
 				87AE567525285A76006F0590 /* AppDelegate.swift */,
 				87AE568325285A77006F0590 /* Info.plist */,
 			);
@@ -247,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8726068C252898B400C828F3 /* Coordinator.swift in Sources */,
 				87AE567825285A76006F0590 /* MainController.swift in Sources */,
+				8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */,
 				87AE567625285A76006F0590 /* AppDelegate.swift in Sources */,
 				87AE568C25285DCA006F0590 /* Network.swift in Sources */,
 				87860BB52528777C00DC6732 /* MainView.swift in Sources */,
