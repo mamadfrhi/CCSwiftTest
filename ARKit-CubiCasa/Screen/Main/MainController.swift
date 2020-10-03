@@ -36,13 +36,16 @@ class MainController: UIViewController {
             switch state {
             case .initial:
                 // Show Layer
-                print("Wait please")
+                print("I'm in initial state.")
+                self.mainView.coachView.isHidden = false
             case .fetchModel:
-                // Start to download
                 print("Is downloading...")
+                // Label: I'm downloading the object
             case .objectIsReady:
                 // Show DropButton
                 print("Show the drop button")
+                // Hide Label
+                // Show Drop Button
                 
             }
         }
@@ -55,7 +58,7 @@ class MainController: UIViewController {
     private let mainView = MainView()
     private var arView: ARView!
     
-    private var objectToAdd: ModelEntity? = nil
+    private var object: ModelEntity? = nil
     // Dependency
     private let network: NetworkService
     
@@ -70,13 +73,13 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        addGestures()
         arView.session.delegate = self
-        self.activateCoachingView()
+        mainView.coachView.session = arView.session
+        addGestures()
     }
     
     //---------------------
-    // MARK: Functionalities
+    // MARK: Functions
     //---------------------
     private func addGestures() {
     // Add gesture on main btn
@@ -85,16 +88,13 @@ class MainController: UIViewController {
     mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
     }
-    
-    func activateCoachingView () {
-        self.mainView.coachView.session = arView.session
-        self.mainView.coachView.isHidden = false
-    }
 }
 
 // AR Delegate
 extension MainController: ARSessionDelegate {
-    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
+    }
 }
 
 // Features
@@ -107,7 +107,7 @@ extension MainController: MainViewControllerFeatures {
             switch result {
             case .success(let downloadedObject):
                 print("Model downloaded")
-                sSelf.objectToAdd = downloadedObject
+                sSelf.object = downloadedObject
                 sSelf.state = .objectIsReady
             case .failure(let error):
                 print("Error loading model: \(error.localizedDescription)")

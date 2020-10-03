@@ -34,6 +34,8 @@ class MainView: UIView {
         arView.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
+        
+        // Add Buttons
         // Drop Button
         self.addSubview(dropObjectButton)
         dropObjectButton.snp.makeConstraints {
@@ -41,6 +43,14 @@ class MainView: UIView {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
         }
+        // Download Button
+        self.addSubview(downloadButton)
+        downloadButton.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
+        
         // Coaching View
         self.addSubview(coachView)
         coachView.snp.makeConstraints {
@@ -52,7 +62,7 @@ class MainView: UIView {
     //----------------
     // MARK: Views
     //----------------
-    var arView = ARView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    var arView = ARView(frame: CGRect())
     
     var titleLabel: UILabel = {
         let lbl = UILabel()
@@ -64,21 +74,24 @@ class MainView: UIView {
         return lbl
     }()
     
-     var dropObjectButton: UIImageView = {
-        let imageName = "DropObjectIcon.png"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
-        
-        // Make Border
-        imageView.layer.borderWidth = 1
-        imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.clipsToBounds = true
-        
-        
+    // Buttons
+     var dropObjectButton: RoundedImageView = {
+        let image = UIImage(systemName: "arkit")
+        let imageView = RoundedImageView(image: image)
+        imageView.isHidden = true
         return imageView
     }()
+    
+    var downloadButton: RoundedImageView = {
+        let image = UIImage(systemName: "icloud.and.arrow.down")
+        let imageView = RoundedImageView(image: image)
+        return imageView
+    }()
+    
+    
+    
+    
+    
     
     
     let coachView : ARCoachingOverlayView = {
@@ -89,4 +102,19 @@ class MainView: UIView {
         return coachingView
     }()
     
+}
+
+class RoundedImageView: UIImageView {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // Make Border
+        self.layer.borderWidth = 1
+        self.layer.masksToBounds = false
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+        
+        // Colors
+        self.backgroundColor = .white
+    }
 }
