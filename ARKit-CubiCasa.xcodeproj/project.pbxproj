@@ -39,10 +39,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8728773A25286954007B322B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				87AE567525285A76006F0590 /* AppDelegate.swift */,
+				87AE568325285A77006F0590 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8728773B25286965007B322B /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				87AE567725285A76006F0590 /* MainController.swift */,
+				87AE567B25285A76006F0590 /* Main.storyboard */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		8728773C25286975007B322B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87AE567E25285A77006F0590 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		87AE566925285A76006F0590 = {
 			isa = PBXGroup;
 			children = (
 				87AE567425285A76006F0590 /* ARKit-CubiCasa */,
+				8728773C25286975007B322B /* Resources */,
 				87AE567325285A76006F0590 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,11 +85,8 @@
 		87AE567425285A76006F0590 /* ARKit-CubiCasa */ = {
 			isa = PBXGroup;
 			children = (
-				87AE567525285A76006F0590 /* AppDelegate.swift */,
-				87AE567725285A76006F0590 /* MainController.swift */,
-				87AE567B25285A76006F0590 /* Main.storyboard */,
-				87AE567E25285A77006F0590 /* Assets.xcassets */,
-				87AE568325285A77006F0590 /* Info.plist */,
+				8728773A25286954007B322B /* App */,
+				8728773B25286965007B322B /* Screen */,
 				87AE569025285EA0006F0590 /* Network */,
 				87AE568D25285E32006F0590 /* Model */,
 			);
