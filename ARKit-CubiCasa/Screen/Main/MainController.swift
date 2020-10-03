@@ -39,13 +39,18 @@ class MainController: UIViewController {
                 // Show Layer
                 print("I'm in initial state.")
                 self.mainView.coachView.isHidden = false
+                mainView.statusLabel.text = "Press to download model"
             case .fetchModel:
                 print("Is downloading...")
+                mainView.downloadButton.isHidden = true
+                mainView.statusLabel.text = "I'm downloading model"
             // Label: I'm downloading the object
             case .objectIsReady:
                 // Show DropButton
                 print("Show the drop button")
-                // Hide Label
+                mainView.downloadButton.isHidden = true
+                mainView.dropObjectButton.isHidden = false
+                mainView.statusLabel.text = "Press to drop the model"
                 // Show Drop Button
                 
             }
@@ -76,6 +81,7 @@ class MainController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         arView.session.delegate = self
         mainView.coachView.session = arView.session
+        self.state = .initial
         addGestures()
     }
     
@@ -86,11 +92,13 @@ class MainController: UIViewController {
         // Add gesture on drop Download Button
         let downloadButtonTapped = UITapGestureRecognizer(target: self,
                                                           action: #selector(downloadObject))
+        mainView.downloadButton.isUserInteractionEnabled = true
         mainView.downloadButton.addGestureRecognizer(downloadButtonTapped)
         
         // Add gesture on Drop Button
         let dropButtonTapped = UITapGestureRecognizer(target: self,
                                                       action: #selector(drop3DObject))
+        mainView.dropObjectButton.isUserInteractionEnabled = true
         mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
     }
@@ -104,6 +112,7 @@ extension MainController: ARSessionDelegate {
 extension MainController: MainViewControllerFeatures {
     @objc
     func downloadObject() {
+        self.state = .fetchModel
         network.loadModel(object3D: .wateringCan) {
             [weak self]
             (result) in
@@ -114,14 +123,15 @@ extension MainController: MainViewControllerFeatures {
                 sSelf.object = downloadedObject
                 sSelf.state = .objectIsReady
             case .failure(let error):
-                print("Error loading model: \(error.localizedDescription)")
+                print("Error when loading model: \(error.localizedDescription)")
             }
         }
     }
     
     @objc
     func drop3DObject() {
-        print("Drop model")
+        print("Drop model function")
+        // TODO: Place downloaded object
     }
 }
 

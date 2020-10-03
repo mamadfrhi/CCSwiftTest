@@ -21,9 +21,6 @@ class RoundedImageView: UIImageView {
         
         // Colors
         self.backgroundColor = .white
-        
-        // Enable interaction
-        self.isUserInteractionEnabled = true
     }
 }
 
