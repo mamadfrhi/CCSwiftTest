@@ -40,7 +40,7 @@ class MainController: UIViewController {
                 self.mainView.coachView.isHidden = false
             case .fetchModel:
                 print("Is downloading...")
-                // Label: I'm downloading the object
+            // Label: I'm downloading the object
             case .objectIsReady:
                 // Show DropButton
                 print("Show the drop button")
@@ -82,24 +82,27 @@ class MainController: UIViewController {
     // MARK: Functions
     //---------------------
     private func addGestures() {
-    // Add gesture on main btn
-    let dropButtonTapped = UITapGestureRecognizer(target: self,
-                                              action: #selector(drop3DObject))
-    mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
+        // Add gesture on drop Download Button
+        let downloadButtonTapped = UITapGestureRecognizer(target: self,
+                                                          action: #selector(downloadObject))
+        mainView.downloadButton.addGestureRecognizer(downloadButtonTapped)
+        
+        // Add gesture on Drop Button
+        let dropButtonTapped = UITapGestureRecognizer(target: self,
+                                                      action: #selector(drop3DObject))
+        mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
     }
 }
 
 // AR Delegate
 extension MainController: ARSessionDelegate {
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        
-    }
 }
 
 // Features
 extension MainController: MainViewControllerFeatures {
-    func fetchModel() {
+    @objc
+    func downloadObject() {
         network.loadModel(object3D: .wateringCan) {
             [weak self]
             (result) in
