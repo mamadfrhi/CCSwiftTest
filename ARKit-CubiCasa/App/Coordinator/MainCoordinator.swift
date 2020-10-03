@@ -21,7 +21,8 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let mainVC = MainController()
+        let network = Network()
+        let mainVC = MainController(network: network)
         navigationController.pushViewController(mainVC, animated: true)
     }
 }
