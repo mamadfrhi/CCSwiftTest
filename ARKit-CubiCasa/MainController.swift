@@ -13,4 +13,11 @@ class MainController: UIViewController {
     
     @IBOutlet var arView: ARView!
     
+    override func viewDidLoad() {
+        Network().loadModel(object3D: .wateringCan) {
+            (result) in
+            print(result)
+        }
+    }
+    
 }
