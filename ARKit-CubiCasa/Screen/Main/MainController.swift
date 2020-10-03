@@ -71,10 +71,14 @@ class MainController: UIViewController {
     private let mainView = MainView()
     private var arView: ARView!
     
+    private var snapshots: [SnapShot] = [] {
+        willSet {
+            print("My new snapshpt is: \n \(newValue)")
+        }
+    }
     private var object: ModelEntity? = nil
     // Dependency
-    private let network: NetworkService
-    
+    private var network: NetworkService
     
     //---------------------
     // MARK: LifeCycle
@@ -160,6 +164,19 @@ extension MainController: MainViewControllerFeatures {
     @objc
     func takeSnapShot() {
         print("Take snapshot button pressed!")
+        let cameraTransform = arView.cameraTransform
+        arView.snapshot(saveToHDR: false) {
+            [weak self]
+            (arViewImage) in
+            guard let image = arViewImage,
+                let sSelf = self else {
+                return
+            }
+            let snapShot = SnapShot(image: image,
+                                    cameraTransform: cameraTransform)
+            sSelf.snapshots.append(snapShot)
+            
+        }
     }
 }
 
