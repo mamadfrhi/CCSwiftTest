@@ -15,7 +15,7 @@ enum NetworkError: Error {
     case invalidURL
 }
 
-class Network: NetworkInterface {
+class Network: NetworkService {
     private var downloadTask: URLSessionTask? = nil
     
     func loadModel(object3D: Object3D,

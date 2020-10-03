@@ -10,7 +10,7 @@ import Foundation
 import RealityKit
 
 
-protocol NetworkInterface {
+protocol NetworkService {
     func loadModel(object3D: Object3D,
                    resultHandler: @escaping (Result<ModelEntity, Error>) -> ())
 }

@@ -14,7 +14,7 @@
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* MainController.swift */; };
 		87AE567F25285A77006F0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567E25285A77006F0590 /* Assets.xcassets */; };
-		87AE568A25285C12006F0590 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568925285C12006F0590 /* Interface.swift */; };
+		87AE568A25285C12006F0590 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568925285C12006F0590 /* NetworkService.swift */; };
 		87AE568C25285DCA006F0590 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568B25285DCA006F0590 /* Network.swift */; };
 		87AE568F25285E75006F0590 /* Object3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568E25285E75006F0590 /* Object3D.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		87AE567725285A76006F0590 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		87AE567E25285A77006F0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87AE568325285A77006F0590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87AE568925285C12006F0590 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		87AE568925285C12006F0590 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		87AE568B25285DCA006F0590 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		87AE568E25285E75006F0590 /* Object3D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object3D.swift; sourceTree = "<group>"; };
 		AA8B40E370A4FD098C1D5046 /* Pods-ARKit-CubiCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARKit-CubiCasa.release.xcconfig"; path = "Target Support Files/Pods-ARKit-CubiCasa/Pods-ARKit-CubiCasa.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		87AE569025285EA0006F0590 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				87AE568925285C12006F0590 /* Interface.swift */,
+				87AE568925285C12006F0590 /* NetworkService.swift */,
 				87AE568B25285DCA006F0590 /* Network.swift */,
 			);
 			path = Network;
@@ -267,7 +267,7 @@
 				87AE567625285A76006F0590 /* AppDelegate.swift in Sources */,
 				87AE568C25285DCA006F0590 /* Network.swift in Sources */,
 				87860BB52528777C00DC6732 /* MainView.swift in Sources */,
-				87AE568A25285C12006F0590 /* Interface.swift in Sources */,
+				87AE568A25285C12006F0590 /* NetworkService.swift in Sources */,
 				87AE568F25285E75006F0590 /* Object3D.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
