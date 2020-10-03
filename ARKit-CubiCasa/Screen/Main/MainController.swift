@@ -38,6 +38,8 @@ class MainController: UIViewController {
         didSet {
             switch state {
             case .initial:
+                mainView.snapshotButton.isHidden = false
+                mainView.downloadButton.isHidden = true
                 // Show Layer
                 print("I'm in initial state.")
                 self.mainView.coachView.isHidden = false
@@ -90,8 +92,8 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        arView.session.delegate = self
-        mainView.coachView.session = arView.session
+//        arView.session.delegate = self
+//        mainView.coachView.session = arView.session
         self.state = .initial
         addGestures()
     }
@@ -151,13 +153,14 @@ extension MainController: MainViewControllerFeatures {
             state = .error
             return
         }
-        // Place the object
-        let anchorEntity = AnchorEntity(plane: .horizontal)
-        
-        arView.scene.anchors.append(anchorEntity)
-        anchorEntity.addChild(myFinalObject)
-        
-        state = .canCaptureSnapshot
+//        // Place the object
+//        //TODO
+//        let anchorEntity = AnchorEntity(plane: .horizontal)
+//
+//        arView.scene.anchors.append(anchorEntity)
+//        anchorEntity.addChild(myFinalObject)
+//
+//        state = .canCaptureSnapshot
         
     }
     
