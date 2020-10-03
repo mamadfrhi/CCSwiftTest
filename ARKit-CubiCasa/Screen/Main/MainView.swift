@@ -42,6 +42,14 @@ class MainView: UIView {
         }
         
         // Add Buttons
+        // Download Button
+        self.addSubview(snapshotButton)
+        snapshotButton.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
+        
         // Drop Button
         self.addSubview(dropObjectButton)
         dropObjectButton.snp.makeConstraints {
@@ -98,7 +106,14 @@ class MainView: UIView {
         return imageView
     }()
     
-    
+    var snapshotButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        let image = UIImage(systemName: "camera")
+        btn.setImage(image,
+                     for: .normal)
+        btn.isHidden = true
+        return btn
+    }()
     
     
     
