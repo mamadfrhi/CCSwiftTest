@@ -11,5 +11,5 @@ import Foundation
 protocol MainViewControllerFeatures {
     func downloadObject()
     func drop3DObject()
-    
+    func takeSnapShot()
 }

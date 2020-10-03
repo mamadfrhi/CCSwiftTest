@@ -31,6 +31,8 @@ class MainController: UIViewController {
         case initial
         case fetchModel
         case objectIsReady
+        case canCaptureSnapshot
+        case error
     }
     private var state: State = .initial {
         didSet {
@@ -51,7 +53,12 @@ class MainController: UIViewController {
                 mainView.downloadButton.isHidden = true
                 mainView.dropObjectButton.isHidden = false
                 mainView.statusLabel.text = "Press to drop the model"
-                // Show Drop Button
+            case .canCaptureSnapshot:
+                mainView.dropObjectButton.isHidden = true
+                mainView.snapshotButton.isHidden = false
+                print("now you can get snapshot")
+            case .error:
+                self.mainView.statusLabel.text = "An error occured!"
                 
             }
         }
@@ -101,6 +108,11 @@ class MainController: UIViewController {
         mainView.dropObjectButton.isUserInteractionEnabled = true
         mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
+        // Add gesture on Snapshot Button
+        mainView.snapshotButton.addTarget(self,
+                                          action: #selector(takeSnapShot),
+                                          for: .touchUpInside)
+        
     }
 }
 
@@ -130,8 +142,24 @@ extension MainController: MainViewControllerFeatures {
     
     @objc
     func drop3DObject() {
-        print("Drop model function")
-        // TODO: Place downloaded object
+        print("Drop model button pressed!")
+        guard let myFinalObject = object else {
+            state = .error
+            return
+        }
+        // Place the object
+        let anchorEntity = AnchorEntity(plane: .horizontal)
+        
+        arView.scene.anchors.append(anchorEntity)
+        anchorEntity.addChild(myFinalObject)
+        
+        state = .canCaptureSnapshot
+        
+    }
+    
+    @objc
+    func takeSnapShot() {
+        print("Take snapshot button pressed!")
     }
 }
 
