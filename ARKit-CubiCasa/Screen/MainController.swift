@@ -39,7 +39,7 @@ class MainController: UIViewController {
     //---------------------
     // MARK: Variables
     //---------------------
-    @IBOutlet var arView: ARView!
+    private let mainView = MainView()
     
     private let network = Network()
     private var objectToAdd: ModelEntity? = nil
@@ -48,6 +48,9 @@ class MainController: UIViewController {
     //---------------------
     // MARK: LifeCycle
     //---------------------
+    override func loadView() {
+        self.view = mainView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         loadObject()
