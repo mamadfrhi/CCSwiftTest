@@ -1,0 +1,6 @@
+framework module Pods_ARKit_CubiCasa {
+  umbrella header "Pods-ARKit-CubiCasa-umbrella.h"
+
+  export *
+  module * { export * }
+}
