@@ -93,21 +93,24 @@ class MainView: UIView {
     }()
     
     // Buttons
-     var dropObjectButton: RoundedImageView = {
+     var dropObjectButton: RoundButton = {
+        let btn = RoundButton(type: .custom)
         let image = UIImage(systemName: "arkit")
-        let imageView = RoundedImageView(image: image)
-        imageView.isHidden = true
-        return imageView
+        btn.setImage(image, for: .normal)
+        btn.isHidden = true
+        return btn
     }()
     
-    var downloadButton: RoundedImageView = {
+    var downloadButton: RoundButton = {
+        let btn = RoundButton(type: .custom)
         let image = UIImage(systemName: "icloud.and.arrow.down")
-        let imageView = RoundedImageView(image: image)
-        return imageView
+        btn.setImage(image, for: .normal)
+        btn.isHidden = true
+        return btn
     }()
     
-    var snapshotButton: UIButton = {
-        let btn = UIButton(type: .custom)
+    var snapshotButton: RoundButton = {
+        let btn = RoundButton(type: .custom)
         let image = UIImage(systemName: "camera")
         btn.setImage(image,
                      for: .normal)
@@ -128,4 +131,5 @@ class MainView: UIView {
     }()
     
 }
+
 

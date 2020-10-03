@@ -11,7 +11,7 @@
 		8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87260689252898B400C828F3 /* MainCoordinator.swift */; };
 		8726068C252898B400C828F3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726068A252898B400C828F3 /* Coordinator.swift */; };
 		8726068F25289CD200C828F3 /* MainFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726068E25289CD200C828F3 /* MainFeatures.swift */; };
-		874003F22528B6BD008FEE06 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F12528B6BD008FEE06 /* RoundedImageView.swift */; };
+		874003F22528B6BD008FEE06 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F12528B6BD008FEE06 /* RoundButton.swift */; };
 		874003F42528D20E008FEE06 /* SnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F32528D20E008FEE06 /* SnapShot.swift */; };
 		87860BB52528777C00DC6732 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* MainView.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
@@ -27,7 +27,7 @@
 		87260689252898B400C828F3 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8726068A252898B400C828F3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8726068E25289CD200C828F3 /* MainFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeatures.swift; sourceTree = "<group>"; };
-		874003F12528B6BD008FEE06 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		874003F12528B6BD008FEE06 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		874003F32528D20E008FEE06 /* SnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShot.swift; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,7 +119,7 @@
 		874003F02528B65C008FEE06 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				874003F12528B6BD008FEE06 /* RoundedImageView.swift */,
+				874003F12528B6BD008FEE06 /* RoundButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -292,7 +292,7 @@
 				8726068F25289CD200C828F3 /* MainFeatures.swift in Sources */,
 				87AE567625285A76006F0590 /* AppDelegate.swift in Sources */,
 				87AE568C25285DCA006F0590 /* Network.swift in Sources */,
-				874003F22528B6BD008FEE06 /* RoundedImageView.swift in Sources */,
+				874003F22528B6BD008FEE06 /* RoundButton.swift in Sources */,
 				874003F42528D20E008FEE06 /* SnapShot.swift in Sources */,
 				87860BB52528777C00DC6732 /* MainView.swift in Sources */,
 				87AE568A25285C12006F0590 /* NetworkService.swift in Sources */,

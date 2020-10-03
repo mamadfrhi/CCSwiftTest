@@ -8,19 +8,22 @@
 
 import UIKit
 
-class RoundedImageView: UIImageView {
-    
+class RoundButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
-        // Make Border
-        self.layer.borderWidth = 1
-        self.layer.masksToBounds = false
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.cornerRadius = self.frame.height / 2
+        // Round it
         self.clipsToBounds = true
+        self.layer.cornerRadius = self.layer.frame.size.width/2;
         
-        // Colors
-        self.backgroundColor = .white
+        //Background
+        self.backgroundColor = .black
+        
+        // Adjust icon
+        self.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.fill
+        self.contentVerticalAlignment =  UIControl.ContentVerticalAlignment.fill
+        
+        self.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+        
     }
 }
 
