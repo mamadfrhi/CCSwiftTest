@@ -24,8 +24,6 @@ class MainController: UIViewController {
     
     //---------------------
     // MARK: State Management
-    // Observer Design Pattern
-    // TODO: Do it with RxSwift OR Move the logic to the another class
     //---------------------
     private enum State {
         case initial
@@ -67,7 +65,20 @@ class MainController: UIViewController {
     //---------------------
     // MARK: Functionalities
     //---------------------
+    private func addGestures() {
+    // Add gesture on main btn
+    let dropButtonTapped = UITapGestureRecognizer(target: self,
+                                              action: #selector(dropModel))
+    mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
+        
+    }
     private func loadObject() {
+        
+    }
+}
+
+extension MainController: MainViewControllerFeatures {
+    func fetchModel() {
         network.loadModel(object3D: .wateringCan) {
             [weak self]
             (result) in
@@ -81,6 +92,11 @@ class MainController: UIViewController {
                 print("Error loading model: \(error.localizedDescription)")
             }
         }
+    }
+    
+    @objc
+    func dropModel() {
+        print("Drop model")
     }
 }
 
