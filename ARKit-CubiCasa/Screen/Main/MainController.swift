@@ -33,32 +33,36 @@ class MainController: UIViewController {
         case objectIsReady
         case canCaptureSnapshot
         case error
+        case canShowSnapshots
     }
     private var state: State = .initial {
         didSet {
             switch state {
             case .initial:
-                mainView.snapshotButton.isHidden = false
-                mainView.downloadButton.isHidden = true
                 // Show Layer
-                print("I'm in initial state.")
                 self.mainView.coachView.isHidden = false
-                mainView.statusLabel.text = "Press to download model"
+                mainView.statusLabel.text = "Press to download mode!l"
+                print("I'm in initial state.")
             case .fetchModel:
-                print("Is downloading...")
                 mainView.downloadButton.isHidden = true
-                mainView.statusLabel.text = "I'm downloading model"
-            // Label: I'm downloading the object
+                mainView.statusLabel.text = "I'm downloading model..."
+                print("Is downloading...")
             case .objectIsReady:
                 // Show DropButton
-                print("Show the drop button")
                 mainView.downloadButton.isHidden = true
                 mainView.dropObjectButton.isHidden = false
-                mainView.statusLabel.text = "Press to drop the model"
+                mainView.statusLabel.text = "Press to drop object."
+                print("Show the drop button")
             case .canCaptureSnapshot:
                 mainView.dropObjectButton.isHidden = true
-                mainView.snapshotButton.isHidden = false
+                mainView.snapshotTakerButton.isHidden = false
+                mainView.statusLabel.text = "Press to capture snapshot."
                 print("now you can get snapshot")
+                
+            case .canShowSnapshots:
+                mainView.statusLabel.text = "Press to drop the model"
+                mainView.showSnapshotsButton.isHidden = false
+                print("Go to see on Map")
             case .error:
                 self.mainView.statusLabel.text = "An error occured!"
                 
@@ -92,8 +96,8 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-//        arView.session.delegate = self
-//        mainView.coachView.session = arView.session
+        arView.session.delegate = self
+        mainView.coachView.session = arView.session
         self.state = .initial
         addGestures()
     }
@@ -115,9 +119,15 @@ class MainController: UIViewController {
         mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
         // Add gesture on Snapshot Button
-        mainView.snapshotButton.addTarget(self,
-                                          action: #selector(takeSnapShot),
-                                          for: .touchUpInside)
+        mainView.snapshotTakerButton.addTarget(self,
+                                               action: #selector(takeSnapShot),
+                                               for: .touchUpInside)
+        
+        // Add gesture on SnapshotMap Button
+        // Navigate
+        mainView.showSnapshotsButton.addTarget(self,
+                                               action: #selector(goToSnapshotsMap),
+                                               for: .touchUpInside)
         
     }
 }
@@ -153,14 +163,14 @@ extension MainController: MainViewControllerFeatures {
             state = .error
             return
         }
-//        // Place the object
-//        //TODO
-//        let anchorEntity = AnchorEntity(plane: .horizontal)
-//
-//        arView.scene.anchors.append(anchorEntity)
-//        anchorEntity.addChild(myFinalObject)
-//
-//        state = .canCaptureSnapshot
+        //         Place the object
+        //TODO
+        let anchorEntity = AnchorEntity(plane: .horizontal)
+        
+        arView.scene.anchors.append(anchorEntity)
+        anchorEntity.addChild(myFinalObject)
+        
+        state = .canCaptureSnapshot
         
     }
     
@@ -173,13 +183,18 @@ extension MainController: MainViewControllerFeatures {
             (arViewImage) in
             guard let image = arViewImage,
                 let sSelf = self else {
-                return
+                    return
             }
             let snapShot = SnapShot(image: image,
                                     cameraTransform: cameraTransform)
             sSelf.snapshots.append(snapShot)
-            
+            sSelf.state = .canShowSnapshots
         }
+    }
+    
+    @objc
+    func goToSnapshotsMap() {
+        print("I'm going to see map!")
     }
 }
 
