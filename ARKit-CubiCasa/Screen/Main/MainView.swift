@@ -56,6 +56,15 @@ class MainView: UIView {
         coachView.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
+        
+        // Label
+        self.addSubview(statusLabel)
+        statusLabel.snp.makeConstraints {
+            $0.left.equalToSuperview().offset(20)
+            $0.bottom.equalToSuperview()
+            $0.right.equalTo(self.downloadButton.snp.left).offset(-10)
+            $0.centerY.equalTo(self.downloadButton.snp.centerY)
+        }
     }
     
     
@@ -64,13 +73,12 @@ class MainView: UIView {
     //----------------
     var arView = ARView(frame: CGRect())
     
-    var titleLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.text = "Clean Your Gallery!"
+    var statusLabel: UILabel = {
+        let lbl = BluredUILabel()
         lbl.textAlignment = .center
         lbl.textColor = .darkText
-        lbl.font = UIFont.init(name: "Arial Rounded MT Bold", size: 33)
         lbl.numberOfLines = 0
+        lbl.text = "iMAMADDDDDDDD"
         return lbl
     }()
     
@@ -104,21 +112,3 @@ class MainView: UIView {
     
 }
 
-class RoundedImageView: UIImageView {
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        // Make Border
-        self.layer.borderWidth = 1
-        self.layer.masksToBounds = false
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.cornerRadius = self.frame.height / 2
-        self.clipsToBounds = true
-        
-        // Colors
-        self.backgroundColor = .white
-        
-        // Enable interaction
-        self.isUserInteractionEnabled = true
-    }
-}
