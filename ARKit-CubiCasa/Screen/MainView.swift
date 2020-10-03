@@ -8,6 +8,7 @@
 
 import UIKit
 import RealityKit
+import SnapKit
 
 class MainView: UIView {
     
@@ -27,8 +28,17 @@ class MainView: UIView {
     // MARK: Functions
     //--------------------------------------
     private func addViews() {
-        // It needs SnapKit
+        self.addSubview(arView)
+        arView.snp.makeConstraints {
+            $0.top.left.bottom.right.equalToSuperview()
+        }
         
+        self.addSubview(dropObjectButton)
+        dropObjectButton.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
     }
     
     
@@ -51,7 +61,15 @@ class MainView: UIView {
         let imageName = "DropObjectIcon.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
+        // Make Border
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.clipsToBounds = true
+        
+        
         return imageView
     }()
     

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,6 @@
 		87860BB52528777C00DC6732 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* MainView.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* MainController.swift */; };
-		87AE567D25285A76006F0590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567B25285A76006F0590 /* Main.storyboard */; };
 		87AE567F25285A77006F0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567E25285A77006F0590 /* Assets.xcassets */; };
 		87AE568A25285C12006F0590 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568925285C12006F0590 /* Interface.swift */; };
 		87AE568C25285DCA006F0590 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE568B25285DCA006F0590 /* Network.swift */; };
@@ -24,7 +23,6 @@
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87AE567725285A76006F0590 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		87AE567C25285A76006F0590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87AE567E25285A77006F0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87AE568325285A77006F0590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87AE568925285C12006F0590 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
@@ -60,7 +58,6 @@
 				C02CC1C3B47E083766B265D0 /* Pods-ARKit-CubiCasa.debug.xcconfig */,
 				AA8B40E370A4FD098C1D5046 /* Pods-ARKit-CubiCasa.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -77,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				87AE567725285A76006F0590 /* MainController.swift */,
-				87AE567B25285A76006F0590 /* Main.storyboard */,
 				87860BB42528777C00DC6732 /* MainView.swift */,
 			);
 			path = Screen;
@@ -199,7 +195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				87AE567F25285A77006F0590 /* Assets.xcassets in Resources */,
-				87AE567D25285A76006F0590 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,17 +257,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		87AE567B25285A76006F0590 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87AE567C25285A76006F0590 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		87AE568425285A77006F0590 /* Debug */ = {
