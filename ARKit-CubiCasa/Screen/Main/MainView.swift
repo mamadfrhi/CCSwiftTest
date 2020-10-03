@@ -43,8 +43,8 @@ class MainView: UIView {
         
         // Add Buttons
         // Download Button
-        self.addSubview(snapshotButton)
-        snapshotButton.snp.makeConstraints {
+        self.addSubview(snapshotTakerButton)
+        snapshotTakerButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
@@ -63,6 +63,15 @@ class MainView: UIView {
             $0.width.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
+        
+        // Show SnapShots Button
+        self.addSubview(showSnapshotsButton)
+        showSnapshotsButton.snp.makeConstraints {
+            $0.width.height.equalTo(100)
+            $0.left.equalTo(self.snapshotTakerButton.snp.right).offset(10)
+            $0.centerY.equalTo(self.snapshotTakerButton.snp.centerY)
+            
         }
         
         
@@ -88,11 +97,18 @@ class MainView: UIView {
         lbl.textAlignment = .center
         lbl.textColor = .darkText
         lbl.numberOfLines = 0
-        lbl.text = "iMAMADDDDDDDD"
+        lbl.text = "It's empty label"
         return lbl
     }()
     
     // Buttons
+    var downloadButton: RoundButton = {
+        let btn = RoundButton(type: .custom)
+        let image = UIImage(systemName: "icloud.and.arrow.down")
+        btn.setImage(image, for: .normal)
+        return btn
+    }()
+    
      var dropObjectButton: RoundButton = {
         let btn = RoundButton(type: .custom)
         let image = UIImage(systemName: "arkit")
@@ -101,17 +117,19 @@ class MainView: UIView {
         return btn
     }()
     
-    var downloadButton: RoundButton = {
+    
+    var snapshotTakerButton: RoundButton = {
         let btn = RoundButton(type: .custom)
-        let image = UIImage(systemName: "icloud.and.arrow.down")
-        btn.setImage(image, for: .normal)
+        let image = UIImage(systemName: "camera")
+        btn.setImage(image,
+                     for: .normal)
         btn.isHidden = true
         return btn
     }()
     
-    var snapshotButton: RoundButton = {
+    var showSnapshotsButton: RoundButton = {
         let btn = RoundButton(type: .custom)
-        let image = UIImage(systemName: "camera")
+        let image = UIImage(systemName: "mappin.and.ellipse")
         btn.setImage(image,
                      for: .normal)
         btn.isHidden = true
