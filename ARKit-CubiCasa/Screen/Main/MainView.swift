@@ -8,6 +8,7 @@
 
 import UIKit
 import RealityKit
+import ARKit
 import SnapKit
 
 class MainView: UIView {
@@ -28,16 +29,22 @@ class MainView: UIView {
     // MARK: Functions
     //--------------------------------------
     private func addViews() {
+        // ARView
         self.addSubview(arView)
         arView.snp.makeConstraints {
             $0.top.left.bottom.right.equalToSuperview()
         }
-        
+        // Drop Button
         self.addSubview(dropObjectButton)
         dropObjectButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
+        // Coaching View
+        self.addSubview(coachView)
+        coachView.snp.makeConstraints {
+            $0.top.left.bottom.right.equalToSuperview()
         }
     }
     
@@ -73,5 +80,13 @@ class MainView: UIView {
         return imageView
     }()
     
+    
+    let coachView : ARCoachingOverlayView = {
+        let coachingView = ARCoachingOverlayView()
+        coachingView.isHidden = true
+        coachingView.activatesAutomatically = true
+        coachingView.goal = .horizontalPlane
+        return coachingView
+    }()
     
 }

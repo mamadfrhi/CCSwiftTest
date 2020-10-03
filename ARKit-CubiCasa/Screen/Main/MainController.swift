@@ -8,6 +8,7 @@
 
 import UIKit
 import RealityKit
+import ARKit
 
 class MainController: UIViewController {
     
@@ -27,16 +28,22 @@ class MainController: UIViewController {
     //---------------------
     private enum State {
         case initial
-        case objectReady
+        case fetchModel
+        case objectIsReady
     }
-    
     private var state: State = .initial {
         didSet {
             switch state {
-            case .objectReady:
-                print("Show the drop button")
             case .initial:
+                // Show Layer
                 print("Wait please")
+            case .fetchModel:
+                // Start to download
+                print("Is downloading...")
+            case .objectIsReady:
+                // Show DropButton
+                print("Show the drop button")
+                
             }
         }
     }
@@ -44,7 +51,10 @@ class MainController: UIViewController {
     //---------------------
     // MARK: Variables
     //---------------------
+    //View
     private let mainView = MainView()
+    private var arView: ARView!
+    
     private var objectToAdd: ModelEntity? = nil
     // Dependency
     private let network: NetworkService
@@ -55,11 +65,14 @@ class MainController: UIViewController {
     //---------------------
     override func loadView() {
         self.view = mainView
+        self.arView = mainView.arView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadObject()
-        //        arView.session.delegate = self
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        addGestures()
+        arView.session.delegate = self
+        self.activateCoachingView()
     }
     
     //---------------------
@@ -68,15 +81,23 @@ class MainController: UIViewController {
     private func addGestures() {
     // Add gesture on main btn
     let dropButtonTapped = UITapGestureRecognizer(target: self,
-                                              action: #selector(dropModel))
+                                              action: #selector(drop3DObject))
     mainView.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
     }
-    private func loadObject() {
-        
+    
+    func activateCoachingView () {
+        self.mainView.coachView.session = arView.session
+        self.mainView.coachView.isHidden = false
     }
 }
 
+// AR Delegate
+extension MainController: ARSessionDelegate {
+    
+}
+
+// Features
 extension MainController: MainViewControllerFeatures {
     func fetchModel() {
         network.loadModel(object3D: .wateringCan) {
@@ -87,7 +108,7 @@ extension MainController: MainViewControllerFeatures {
             case .success(let downloadedObject):
                 print("Model downloaded")
                 sSelf.objectToAdd = downloadedObject
-                sSelf.state = .objectReady
+                sSelf.state = .objectIsReady
             case .failure(let error):
                 print("Error loading model: \(error.localizedDescription)")
             }
@@ -95,10 +116,9 @@ extension MainController: MainViewControllerFeatures {
     }
     
     @objc
-    func dropModel() {
+    func drop3DObject() {
         print("Drop model")
     }
 }
-
 
 

@@ -10,5 +10,6 @@ import Foundation
 
 protocol MainViewControllerFeatures {
     func fetchModel()
-    func dropModel()
+    func drop3DObject()
+    
 }
