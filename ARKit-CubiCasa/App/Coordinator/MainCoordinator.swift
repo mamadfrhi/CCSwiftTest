@@ -22,7 +22,7 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let network = Network()
-        let mainVC = MainController(network: network)
+        let mainVC = ARController(network: network)
         navigationController.pushViewController(mainVC, animated: true)
     }
 }

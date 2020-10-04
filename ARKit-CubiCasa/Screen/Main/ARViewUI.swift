@@ -11,7 +11,7 @@ import RealityKit
 import ARKit
 import SnapKit
 
-class MainView: UIView {
+class ARViewUI: UIView {
     
     //--------------------------------------
     // MARK: Init
@@ -144,7 +144,7 @@ class MainView: UIView {
         let coachingView = ARCoachingOverlayView()
         coachingView.isHidden = true
         coachingView.activatesAutomatically = true
-        coachingView.goal = .horizontalPlane
+        coachingView.goal = .verticalPlane
         return coachingView
     }()
     
