@@ -60,7 +60,7 @@ class ARImplementation: ARFeature {
             }
             let snapShot = SnapShot(image: image,
                                     cameraTransform: cameraTransform)
-            sSelf.arController.snapshots.append(snapShot)
+            sSelf.arController.snapShots.append(snapShot)
             sSelf.arController.state = .canShowSnapshots
         }
     }

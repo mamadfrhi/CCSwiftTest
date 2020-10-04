@@ -26,9 +26,9 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(arVC, animated: true)
     }
     
-    func showSnapshotsMap(with snapshots: [SnapShot]) {
+    func showSnapshotsMap(with snapShots: [SnapShot]) {
         print("I'm in coordinator!!!!")
-        let mapVC = MapController(snapShots: snapshots)
+        let mapVC = MapController(snapShots: snapShots)
         navigationController.present(mapVC,
                                      animated: true)
     }
