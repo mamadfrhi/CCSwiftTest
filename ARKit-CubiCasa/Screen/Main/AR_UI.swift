@@ -140,7 +140,7 @@ class AR_UI: UIView {
         let coachingView = ARCoachingOverlayView()
         coachingView.isHidden = true
         coachingView.activatesAutomatically = true
-        coachingView.goal = .verticalPlane
+        coachingView.goal = .horizontalPlane
         return coachingView
     }()
     
