@@ -99,8 +99,8 @@ class ARController: UIViewController, ARSessionDelegate {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
         //TODO
-        arView.session.delegate = self
-        arControllerUI.coachView.session = arView.session
+//        arView.session.delegate = self
+//        arControllerUI.coachView.session = arView.session
         self.state = .initial
         addGestures()
     }
