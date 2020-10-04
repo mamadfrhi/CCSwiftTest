@@ -38,8 +38,8 @@ class ARControllerImplementation: ARControllerFeatures {
             arController.state = .error
             return
         }
-        //         Place the object
-        //TODO
+        // Place the object
+        // TODO
         let anchorEntity = AnchorEntity(plane: .vertical)
         
         arController.arView.scene.anchors.append(anchorEntity)

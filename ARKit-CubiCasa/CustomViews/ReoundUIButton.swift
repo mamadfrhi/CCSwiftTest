@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundButton: UIButton {
+class ReoundUIButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         // Round it
@@ -24,22 +24,5 @@ class RoundButton: UIButton {
         
         self.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
         
-    }
-}
-
-
-class BluredUILabel: UILabel {
-    let background = UIVisualEffectView()
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        addBLurBaclground()
-        self.textColor = .red
-    }
-    
-    private func addBLurBaclground() {
-        self.addSubview(background)
-        background.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
     }
 }
