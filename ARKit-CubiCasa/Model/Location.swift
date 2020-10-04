@@ -1,5 +1,5 @@
 //
-//  MapUI.swift
+//  Location.swift
 //  ARKit-CubiCasa
 //
 //  Created by iMamad on 10/4/20.
@@ -8,6 +8,8 @@
 
 import UIKit
 
-class MapUI: UIView {
-    
+struct Location {
+    let x: CGFloat
+    let y: CGFloat
+    let tag: Int
 }

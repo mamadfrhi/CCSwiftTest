@@ -59,7 +59,7 @@ class ARController: UIViewController, ARSessionDelegate {
                 // Show coach view
                 self.arControllerUI.coachView.isHidden = false
                 //TODO
-                self.arControllerUI.showSnapshotsButton.isHidden = false
+//                self.arControllerUI.showSnapshotsButton.isHidden = false
                 arControllerUI.statusLabel.text = "Press to download model!"
                 print("I'm in initial state.")
             case .fetchModel:
@@ -98,6 +98,7 @@ class ARController: UIViewController, ARSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        //TODO
         arView.session.delegate = self
         arControllerUI.coachView.session = arView.session
         self.state = .initial

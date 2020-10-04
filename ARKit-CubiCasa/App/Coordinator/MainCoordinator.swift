@@ -22,12 +22,15 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let network = Network()
-        let mainVC = ARController(coordinator: self ,network: network)
-        navigationController.pushViewController(mainVC, animated: true)
+        let arVC = ARController(coordinator: self ,network: network)
+        navigationController.pushViewController(arVC, animated: true)
     }
     
     func showSnapshotsMap(with snapshots: [SnapShot]) {
         print("I'm in coordinator!!!!")
+        let mapVC = MapController(snapShots: snapshots)
+        // TODO: Convert to modal view
+        navigationController.pushViewController(mapVC, animated: true)
     }
 }
 
