@@ -18,6 +18,7 @@
 		874003F22528B6BD008FEE06 /* ReoundUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F12528B6BD008FEE06 /* ReoundUIButton.swift */; };
 		874003F42528D20E008FEE06 /* SnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F32528D20E008FEE06 /* SnapShot.swift */; };
 		877AADB2252A071100023CA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB1252A071100023CA2 /* Location.swift */; };
+		877AADB4252A112A00023CA2 /* wateringcan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 877AADB3252A112A00023CA2 /* wateringcan.usdz */; };
 		87860BB52528777C00DC6732 /* AR_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* AR_UI.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* ARController.swift */; };
@@ -39,6 +40,7 @@
 		874003F12528B6BD008FEE06 /* ReoundUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReoundUIButton.swift; sourceTree = "<group>"; };
 		874003F32528D20E008FEE06 /* SnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShot.swift; sourceTree = "<group>"; };
 		877AADB1252A071100023CA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		877AADB3252A112A00023CA2 /* wateringcan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wateringcan.usdz; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* AR_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_UI.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		8728773C25286975007B322B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				877AADB3252A112A00023CA2 /* wateringcan.usdz */,
 				87AE567E25285A77006F0590 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87AE567F25285A77006F0590 /* Assets.xcassets in Resources */,
+				877AADB4252A112A00023CA2 /* wateringcan.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
