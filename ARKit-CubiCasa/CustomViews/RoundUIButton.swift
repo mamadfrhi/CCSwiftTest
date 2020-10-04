@@ -8,19 +8,20 @@
 
 import UIKit
 
-class ReoundUIButton: UIButton {
+class RoundUIButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         // Round it
         self.clipsToBounds = true
         self.layer.cornerRadius = self.layer.frame.size.width/2;
         
-        //Background
-        self.backgroundColor = .black
+        // Coloring
+        self.backgroundColor = .white
+        self.tintColor = .black
         
         // Adjust icon
-        self.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.fill
-        self.contentVerticalAlignment =  UIControl.ContentVerticalAlignment.fill
+        self.contentHorizontalAlignment = .fill
+        self.contentVerticalAlignment = .fill
         
         self.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
         
