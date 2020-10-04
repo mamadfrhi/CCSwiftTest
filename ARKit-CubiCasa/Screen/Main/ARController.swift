@@ -11,6 +11,15 @@ import RealityKit
 import ARKit
 import SnapKit
 
+enum ARControllerState {
+    case initial
+    case fetchModel
+    case objectIsReady
+    case canCaptureSnapshot
+    case canShowSnapshots
+    case error
+}
+
 class ARController: UIViewController {
     
     //---------------------
@@ -41,15 +50,7 @@ class ARController: UIViewController {
     //---------------------
     // MARK: State Management
     //---------------------
-    enum State {
-        case initial
-        case fetchModel
-        case objectIsReady
-        case canCaptureSnapshot
-        case error
-        case canShowSnapshots
-    }
-    var state: State = .initial {
+    var state: ARControllerState = .initial {
         didSet {
             switch state {
             case .initial:
