@@ -98,15 +98,15 @@ class AR_UI: UIView {
     }()
     
     // Buttons
-    var downloadButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var downloadButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "icloud.and.arrow.down")
         btn.setImage(image, for: .normal)
         return btn
     }()
     
-     var dropObjectButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+     var dropObjectButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "arkit")
         btn.setImage(image, for: .normal)
         btn.isHidden = true
@@ -114,8 +114,8 @@ class AR_UI: UIView {
     }()
     
     
-    var snapshotTakerButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var snapshotTakerButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "camera")
         btn.setImage(image,
                      for: .normal)
@@ -123,8 +123,8 @@ class AR_UI: UIView {
         return btn
     }()
     
-    var showSnapshotsButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var showSnapshotsButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "mappin.and.ellipse")
         btn.setImage(image,
                      for: .normal)
