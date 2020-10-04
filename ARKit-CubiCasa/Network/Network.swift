@@ -21,6 +21,18 @@ class Network: NetworkService {
     func loadModel(object3D: Object3D,
                    resultHandler: @escaping (Result<ModelEntity, Error>) -> ()) {
         
+        #if DEBUG
+        // If is in debug mode, Don't waste time for fetching
+        if let modelURL = Bundle.main.url(forResource: "wateringcan", withExtension: "usdz") {
+            do {
+                let entity = try Entity.loadModel(contentsOf: modelURL)
+                resultHandler(.success(entity))
+            } catch let e {
+                resultHandler(.failure(e))
+            }
+        }
+        #endif
+        
         guard let url = object3D.networkURL else {
             resultHandler(.failure(NetworkError.invalidURL))
             return
