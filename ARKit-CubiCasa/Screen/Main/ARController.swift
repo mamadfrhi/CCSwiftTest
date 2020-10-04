@@ -38,7 +38,7 @@ class ARController: UIViewController, ARSessionDelegate {
     //---------------------
     // MARK: Variables
     //---------------------
-    var snapshots: [SnapShot] = []
+    var snapShots: [SnapShot] = []
     var object: ModelEntity? = nil
     //View
     private let arControllerUI = AR_UI()
@@ -156,12 +156,12 @@ extension ARController: ARFeature {
     
     @objc
     func goToSnapshotsMap() {
-        snapshots.append(SnapShot(image: UIImage(),
+        snapShots.append(SnapShot(image: UIImage(),
                                   cameraTransform: Transform()))
-        guard snapshots.count > 0 else {
+        guard snapShots.count > 0 else {
             self.arControllerUI.statusLabel.text = "Please capture snapshot."
             return
         }
-        coordinator?.showSnapshotsMap(with: snapshots)
+        coordinator?.showSnapshotsMap(with: snapShots)
     }
 }
