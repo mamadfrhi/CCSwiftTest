@@ -16,6 +16,7 @@ class MapController: UIViewController {
         self.snapShots = snapShots
         self.snapShotDrawer = SnapShotDrawingOnController()
         super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = .black
         snapShotDrawer.snapShotTapDelegate = self
     }
     required init?(coder: NSCoder) {
