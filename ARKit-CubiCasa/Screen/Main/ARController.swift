@@ -20,7 +20,7 @@ enum ARControllerState {
     case error
 }
 
-class ARController: UIViewController {
+class ARController: UIViewController, ARSessionDelegate {
     
     //---------------------
     // MARK: Init
@@ -40,7 +40,7 @@ class ARController: UIViewController {
     var snapshots: [SnapShot] = []
     var object: ModelEntity? = nil
     //View
-    private let arViewUI = ARControllerUI()
+    private let arControllerUI = ARControllerUI()
     var arView: ARView!
     
     // Dependency
@@ -55,31 +55,30 @@ class ARController: UIViewController {
             switch state {
             case .initial:
                 // Show coach view
-                self.arViewUI.coachView.isHidden = false
-                arViewUI.statusLabel.text = "Press to download model!"
+                self.arControllerUI.coachView.isHidden = false
+                arControllerUI.statusLabel.text = "Press to download model!"
                 print("I'm in initial state.")
             case .fetchModel:
-                arViewUI.downloadButton.isHidden = true
-                arViewUI.statusLabel.text = "I'm downloading model..."
+                arControllerUI.downloadButton.isHidden = true
+                arControllerUI.statusLabel.text = "I'm downloading model..."
                 print("Is downloading...")
             case .objectIsReady:
                 // Show DropButton
-                arViewUI.downloadButton.isHidden = true
-                arViewUI.dropObjectButton.isHidden = false
-                arViewUI.statusLabel.text = "Press to drop object."
+                arControllerUI.downloadButton.isHidden = true
+                arControllerUI.dropObjectButton.isHidden = false
+                arControllerUI.statusLabel.text = "Press to drop object."
                 print("Show the drop button")
             case .canCaptureSnapshot:
-                arViewUI.dropObjectButton.isHidden = true
-                arViewUI.snapshotTakerButton.isHidden = false
-                arViewUI.statusLabel.text = "Press to capture snapshot."
+                arControllerUI.dropObjectButton.isHidden = true
+                arControllerUI.snapshotTakerButton.isHidden = false
+                arControllerUI.statusLabel.text = "Press to capture snapshot."
                 print("now you can get snapshot")
-                
             case .canShowSnapshots:
-                arViewUI.statusLabel.text = "Press to drop the model"
-                arViewUI.showSnapshotsButton.isHidden = false
+                arControllerUI.showSnapshotsButton.isHidden = false
+                arControllerUI.statusLabel.text = "Now, you can watch snapshots map"
                 print("Go to see on Map")
             case .error:
-                self.arViewUI.statusLabel.text = "An error occured!"
+                self.arControllerUI.statusLabel.text = "An error occured!"
                 
             }
         }
@@ -89,14 +88,14 @@ class ARController: UIViewController {
     // MARK: LifeCycle
     //---------------------
     override func loadView() {
-        self.view = arViewUI
-        self.arView = arViewUI.arView
+        self.view = arControllerUI
+        self.arView = arControllerUI.arView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
         arView.session.delegate = self
-        arViewUI.coachView.session = arView.session
+        arControllerUI.coachView.session = arView.session
         self.state = .initial
         addGestures()
     }
@@ -108,34 +107,32 @@ class ARController: UIViewController {
         // Add gesture on drop Download Button
         let downloadButtonTapped = UITapGestureRecognizer(target: self,
                                                           action: #selector(downloadObject))
-        arViewUI.downloadButton.isUserInteractionEnabled = true
-        arViewUI.downloadButton.addGestureRecognizer(downloadButtonTapped)
+        arControllerUI.downloadButton.isUserInteractionEnabled = true
+        arControllerUI.downloadButton.addGestureRecognizer(downloadButtonTapped)
         
         // Add gesture on Drop Button
         let dropButtonTapped = UITapGestureRecognizer(target: self,
                                                       action: #selector(drop3DObject))
-        arViewUI.dropObjectButton.isUserInteractionEnabled = true
-        arViewUI.dropObjectButton.addGestureRecognizer(dropButtonTapped)
+        arControllerUI.dropObjectButton.isUserInteractionEnabled = true
+        arControllerUI.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
         // Add gesture on Snapshot Button
-        arViewUI.snapshotTakerButton.addTarget(self,
+        arControllerUI.snapshotTakerButton.addTarget(self,
                                                action: #selector(takeSnapShot),
                                                for: .touchUpInside)
         
         // Add gesture on SnapshotMap Button
         // Navigate
-        arViewUI.showSnapshotsButton.addTarget(self,
+        arControllerUI.showSnapshotsButton.addTarget(self,
                                                action: #selector(goToSnapshotsMap),
                                                for: .touchUpInside)
         
     }
 }
 
-// AR Delegate
-extension ARController: ARSessionDelegate {
-}
-
-// Features
+//---------------------
+// MARK: Features
+//---------------------
 extension ARController: ARControllerFeatures {
     @objc
     func downloadObject() {
