@@ -11,7 +11,7 @@ import RealityKit
 import ARKit
 import SnapKit
 
-class ARControllerUI: UIView {
+class AR_UI: UIView {
     
     //--------------------------------------
     // MARK: Init
