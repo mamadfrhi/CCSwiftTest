@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ARViewControllerFeatures {
+protocol ARControllerFeatures {
     func downloadObject()
     func drop3DObject()
     func takeSnapShot()

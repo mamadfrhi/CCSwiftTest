@@ -9,7 +9,7 @@
 import UIKit
 import RealityKit
 
-class ARControllerFeaturesImplementation: ARViewControllerFeatures {
+class ARControllerImplementation: ARViewControllerFeatures {
     weak var arController: ARController!
     init(arController: ARController) {
         self.arController = arController
