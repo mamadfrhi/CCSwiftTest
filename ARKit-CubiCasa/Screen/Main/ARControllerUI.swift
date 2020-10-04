@@ -76,13 +76,13 @@ class ARControllerUI: UIView {
         
         
         
-        // Label
+        // Status Label
         self.addSubview(statusLabel)
         statusLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(20)
-            $0.bottom.equalToSuperview()
+            $0.left.equalToSuperview().offset(10)
             $0.right.equalTo(self.downloadButton.snp.left).offset(-10)
-            $0.centerY.equalTo(self.downloadButton.snp.centerY)
+            $0.height.equalTo(self.downloadButton.snp.height)
+            $0.center.equalTo(self.downloadButton.snp.center)
         }
     }
     
@@ -92,25 +92,21 @@ class ARControllerUI: UIView {
     //----------------
     var arView = ARView(frame: CGRect())
     
-    var statusLabel: UILabel = {
+    var statusLabel: BluredUILabel = {
         let lbl = BluredUILabel()
-        lbl.textAlignment = .center
-        lbl.textColor = .darkText
-        lbl.numberOfLines = 0
-        lbl.text = "It's empty label"
         return lbl
     }()
     
     // Buttons
-    var downloadButton: RoundButton = {
-        let btn = RoundButton(type: .custom)
+    var downloadButton: ReoundUIButton = {
+        let btn = ReoundUIButton(type: .custom)
         let image = UIImage(systemName: "icloud.and.arrow.down")
         btn.setImage(image, for: .normal)
         return btn
     }()
     
-     var dropObjectButton: RoundButton = {
-        let btn = RoundButton(type: .custom)
+     var dropObjectButton: ReoundUIButton = {
+        let btn = ReoundUIButton(type: .custom)
         let image = UIImage(systemName: "arkit")
         btn.setImage(image, for: .normal)
         btn.isHidden = true
@@ -118,8 +114,8 @@ class ARControllerUI: UIView {
     }()
     
     
-    var snapshotTakerButton: RoundButton = {
-        let btn = RoundButton(type: .custom)
+    var snapshotTakerButton: ReoundUIButton = {
+        let btn = ReoundUIButton(type: .custom)
         let image = UIImage(systemName: "camera")
         btn.setImage(image,
                      for: .normal)
@@ -127,8 +123,8 @@ class ARControllerUI: UIView {
         return btn
     }()
     
-    var showSnapshotsButton: RoundButton = {
-        let btn = RoundButton(type: .custom)
+    var showSnapshotsButton: ReoundUIButton = {
+        let btn = ReoundUIButton(type: .custom)
         let image = UIImage(systemName: "mappin.and.ellipse")
         btn.setImage(image,
                      for: .normal)

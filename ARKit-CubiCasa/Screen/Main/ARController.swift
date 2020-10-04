@@ -56,7 +56,7 @@ class ARController: UIViewController {
             case .initial:
                 // Show coach view
                 self.arViewUI.coachView.isHidden = false
-                arViewUI.statusLabel.text = "Press to download mode!l"
+                arViewUI.statusLabel.text = "Press to download model!"
                 print("I'm in initial state.")
             case .fetchModel:
                 arViewUI.downloadButton.isHidden = true
