@@ -22,8 +22,12 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let network = Network()
-        let mainVC = ARController(network: network)
+        let mainVC = ARController(coordinator: self ,network: network)
         navigationController.pushViewController(mainVC, animated: true)
+    }
+    
+    func showSnapshotsMap(with snapshots: [SnapShot]) {
+        print("I'm in coordinator!!!!")
     }
 }
 

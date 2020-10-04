@@ -25,7 +25,8 @@ class ARController: UIViewController, ARSessionDelegate {
     //---------------------
     // MARK: Init
     //---------------------
-    init(network: NetworkService) {
+    init(coordinator: MainCoordinator, network: NetworkService) {
+        self.coordinator = coordinator
         self.network = network
         super.init(nibName: nil, bundle: nil)
         self.features = ARControllerImplementation(arController: self)
@@ -45,6 +46,7 @@ class ARController: UIViewController, ARSessionDelegate {
     
     // Dependency
     var network: NetworkService
+    var coordinator: MainCoordinator?
     var features: ARControllerFeatures!
     
     //---------------------
@@ -56,6 +58,8 @@ class ARController: UIViewController, ARSessionDelegate {
             case .initial:
                 // Show coach view
                 self.arControllerUI.coachView.isHidden = false
+                //TODO
+                self.arControllerUI.showSnapshotsButton.isHidden = false
                 arControllerUI.statusLabel.text = "Press to download model!"
                 print("I'm in initial state.")
             case .fetchModel:
@@ -151,6 +155,12 @@ extension ARController: ARControllerFeatures {
     
     @objc
     func goToSnapshotsMap() {
-        print("I'm going to see map!")
+        snapshots.append(SnapShot(image: UIImage(),
+                                  cameraTransform: Transform()))
+        guard snapshots.count > 0 else {
+            self.arControllerUI.statusLabel.text = "Please capture snapshot."
+            return
+        }
+        coordinator?.showSnapshotsMap(with: snapshots)
     }
 }
