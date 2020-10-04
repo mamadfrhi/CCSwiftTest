@@ -29,8 +29,8 @@ class MainCoordinator: Coordinator {
     func showSnapshotsMap(with snapshots: [SnapShot]) {
         print("I'm in coordinator!!!!")
         let mapVC = MapController(snapShots: snapshots)
-        // TODO: Convert to modal view
-        navigationController.pushViewController(mapVC, animated: true)
+        navigationController.present(mapVC,
+                                     animated: true)
     }
 }
 
