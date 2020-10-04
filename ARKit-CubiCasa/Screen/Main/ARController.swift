@@ -29,7 +29,7 @@ class ARController: UIViewController, ARSessionDelegate {
         self.coordinator = coordinator
         self.network = network
         super.init(nibName: nil, bundle: nil)
-        self.features = ARControllerImplementation(arController: self)
+        self.features = ARImplementation(arController: self)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -41,13 +41,13 @@ class ARController: UIViewController, ARSessionDelegate {
     var snapshots: [SnapShot] = []
     var object: ModelEntity? = nil
     //View
-    private let arControllerUI = ARControllerUI()
+    private let arControllerUI = AR_UI()
     var arView: ARView!
     
     // Dependency
     var network: NetworkService
     var coordinator: MainCoordinator?
-    var features: ARControllerFeatures!
+    var features: ARFeature!
     
     //---------------------
     // MARK: State Management
@@ -137,7 +137,7 @@ class ARController: UIViewController, ARSessionDelegate {
 //---------------------
 // MARK: Features
 //---------------------
-extension ARController: ARControllerFeatures {
+extension ARController: ARFeature {
     @objc
     func downloadObject() {
         self.features.downloadObject()
