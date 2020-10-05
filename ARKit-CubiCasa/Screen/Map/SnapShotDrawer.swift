@@ -9,7 +9,7 @@
 import UIKit
 
 // Interface
-protocol SnapShotsDrawing {
+protocol SnapShotsDraw {
     // Drawing
     func drawAllSnapShots(snapShots: [SnapShot], on view: UIView)
     func drawSingleSnapshot(x: CGFloat, y:CGFloat, tag: Int, on view: UIView)
@@ -18,13 +18,13 @@ protocol SnapShotsDrawing {
 }
 
 // Make these optional
-extension SnapShotsDrawing {
+extension SnapShotsDraw {
     func drawSingleSnapshot(x: CGFloat, y:CGFloat, tag: Int, on view: UIView) {}
     func calculateScale(from snapShots: [SnapShot], into view: UIView){}
 }
 
 // Implementation
-class SnapShotDrawingOnController: SnapShotsDrawing {
+class SnapShotDrawer: SnapShotsDraw {
     
     weak var snapShotTapDelegate: SnapShotTapDelegate?
     
