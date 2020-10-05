@@ -164,8 +164,6 @@ extension ARController: ARFeature {
     
     @objc
     func goToSnapShotsMap() {
-        snapShots.append(SnapShot(image: UIImage(),
-                                  cameraTransform: Transform()))
         guard snapShots.count > 0 else {
             self.arControllerUI.statusLabel.text = "Please capture snapshot."
             return
