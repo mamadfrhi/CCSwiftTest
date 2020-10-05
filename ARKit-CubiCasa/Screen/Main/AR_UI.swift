@@ -11,6 +11,7 @@ import RealityKit
 import ARKit
 import SnapKit
 
+// I set AR_UI, because ARView is reserved by the OS
 class AR_UI: UIView {
     
     //--------------------------------------
@@ -43,8 +44,8 @@ class AR_UI: UIView {
         
         // Add Buttons
         // Download Button
-        self.addSubview(snapshotTakerButton)
-        snapshotTakerButton.snp.makeConstraints {
+        self.addSubview(cameraButton)
+        cameraButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
@@ -66,11 +67,11 @@ class AR_UI: UIView {
         }
         
         // Show SnapShots Button
-        self.addSubview(showSnapshotsButton)
-        showSnapshotsButton.snp.makeConstraints {
+        self.addSubview(showSnapShotsMapButton)
+        showSnapShotsMapButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
-            $0.left.equalTo(self.snapshotTakerButton.snp.right).offset(10)
-            $0.centerY.equalTo(self.snapshotTakerButton.snp.centerY)
+            $0.left.equalTo(self.cameraButton.snp.right).offset(10)
+            $0.centerY.equalTo(self.cameraButton.snp.centerY)
             
         }
         
@@ -79,10 +80,9 @@ class AR_UI: UIView {
         // Status Label
         self.addSubview(statusLabel)
         statusLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(10)
-            $0.right.equalTo(self.downloadButton.snp.left).offset(-10)
-            $0.height.equalTo(self.downloadButton.snp.height)
-            $0.center.equalTo(self.downloadButton.snp.center)
+            $0.width.height.equalTo(100)
+            $0.left.equalToSuperview().offset(8)
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)
         }
     }
     
@@ -98,15 +98,15 @@ class AR_UI: UIView {
     }()
     
     // Buttons
-    var downloadButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var downloadButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "icloud.and.arrow.down")
         btn.setImage(image, for: .normal)
         return btn
     }()
     
-     var dropObjectButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var dropObjectButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "arkit")
         btn.setImage(image, for: .normal)
         btn.isHidden = true
@@ -114,24 +114,22 @@ class AR_UI: UIView {
     }()
     
     
-    var snapshotTakerButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var cameraButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "camera")
-        btn.setImage(image,
-                     for: .normal)
+        btn.setImage(image, for: .normal)
         btn.isHidden = true
         return btn
     }()
     
-    var showSnapshotsButton: ReoundUIButton = {
-        let btn = ReoundUIButton(type: .custom)
+    var showSnapShotsMapButton: RoundUIButton = {
+        let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "mappin.and.ellipse")
         btn.setImage(image,
                      for: .normal)
         btn.isHidden = true
         return btn
     }()
-    
     
     
     

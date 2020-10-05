@@ -15,7 +15,7 @@ class BluredUILabel: UIVisualEffectView {
     //----------------
     var text: String! {
         willSet {
-            label.text = newValue
+            changeText(with: newValue)
         }
     }
     private var label: UILabel = {
@@ -55,6 +55,18 @@ class BluredUILabel: UIVisualEffectView {
         label.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    //----------------
+    // MARK: Function
+    //----------------
+    private func changeText(with newString: String) {
+        UIView.transition(with: label,
+                          duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            [weak self] in
+                            self?.label.text = newString })
     }
 }
 

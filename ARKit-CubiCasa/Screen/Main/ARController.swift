@@ -11,21 +11,13 @@ import RealityKit
 import ARKit
 import SnapKit
 
-enum ARControllerState {
-    case initial
-    case fetchModel
-    case objectIsReady
-    case canCaptureSnapshot
-    case canShowSnapshots
-    case error
-}
-
-class ARController: UIViewController, ARSessionDelegate {
+class ARController: UIViewController {
     
     //---------------------
     // MARK: Init
     //---------------------
     init(coordinator: MainCoordinator, network: NetworkService) {
+        self.stateManager = StateManager(arUI: self.arControllerUI)
         self.coordinator = coordinator
         self.network = network
         super.init(nibName: nil, bundle: nil)
@@ -38,55 +30,17 @@ class ARController: UIViewController, ARSessionDelegate {
     //---------------------
     // MARK: Variables
     //---------------------
-    var snapshots: [SnapShot] = []
+    var snapShots: [SnapShot] = []
     var object: ModelEntity? = nil
     //View
     private let arControllerUI = AR_UI()
     var arView: ARView!
     
     // Dependency
+    weak var coordinator: MainCoordinator?
+    var stateManager: StateManager
     var network: NetworkService
-    var coordinator: MainCoordinator?
     var features: ARFeature!
-    
-    //---------------------
-    // MARK: State Management
-    //---------------------
-    var state: ARControllerState = .initial {
-        didSet {
-            switch state {
-            case .initial:
-                // Show coach view
-                self.arControllerUI.coachView.isHidden = false
-                //TODO
-//                self.arControllerUI.showSnapshotsButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to download model!"
-                print("I'm in initial state.")
-            case .fetchModel:
-                arControllerUI.downloadButton.isHidden = true
-                arControllerUI.statusLabel.text = "I'm downloading model..."
-                print("Is downloading...")
-            case .objectIsReady:
-                // Show DropButton
-                arControllerUI.downloadButton.isHidden = true
-                arControllerUI.dropObjectButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to drop object."
-                print("Show the drop button")
-            case .canCaptureSnapshot:
-                arControllerUI.dropObjectButton.isHidden = true
-                arControllerUI.snapshotTakerButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to capture snapshot."
-                print("now you can get snapshot")
-            case .canShowSnapshots:
-                arControllerUI.showSnapshotsButton.isHidden = false
-                arControllerUI.statusLabel.text = "Now, you can watch snapshots map"
-                print("Go to see on Map")
-            case .error:
-                self.arControllerUI.statusLabel.text = "An error occured!"
-                
-            }
-        }
-    }
     
     //---------------------
     // MARK: LifeCycle
@@ -97,12 +51,21 @@ class ARController: UIViewController, ARSessionDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        //TODO
+        self.title = "AR View"
+        addGestures()
+        // TODO:S
         arView.session.delegate = self
         arControllerUI.coachView.session = arView.session
-        self.state = .initial
-        addGestures()
+        stateManager.state = .initial
+    }
+    // Handle UINavigationBar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //---------------------
@@ -112,24 +75,22 @@ class ARController: UIViewController, ARSessionDelegate {
         // Add gesture on drop Download Button
         let downloadButtonTapped = UITapGestureRecognizer(target: self,
                                                           action: #selector(downloadObject))
-        arControllerUI.downloadButton.isUserInteractionEnabled = true
         arControllerUI.downloadButton.addGestureRecognizer(downloadButtonTapped)
         
         // Add gesture on Drop Button
         let dropButtonTapped = UITapGestureRecognizer(target: self,
                                                       action: #selector(drop3DObject))
-        arControllerUI.dropObjectButton.isUserInteractionEnabled = true
         arControllerUI.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
         // Add gesture on Snapshot Button
-        arControllerUI.snapshotTakerButton.addTarget(self,
+        arControllerUI.cameraButton.addTarget(self,
                                                action: #selector(takeSnapShot),
                                                for: .touchUpInside)
         
         // Add gesture on SnapshotMap Button
         // Navigate
-        arControllerUI.showSnapshotsButton.addTarget(self,
-                                               action: #selector(goToSnapshotsMap),
+        arControllerUI.showSnapShotsMapButton.addTarget(self,
+                                               action: #selector(goToSnapShotsMap),
                                                for: .touchUpInside)
         
     }
@@ -155,13 +116,33 @@ extension ARController: ARFeature {
     }
     
     @objc
-    func goToSnapshotsMap() {
-        snapshots.append(SnapShot(image: UIImage(),
-                                  cameraTransform: Transform()))
-        guard snapshots.count > 0 else {
+    func goToSnapShotsMap() {
+        guard snapShots.count > 0 else {
             self.arControllerUI.statusLabel.text = "Please capture snapshot."
             return
         }
-        coordinator?.showSnapshotsMap(with: snapshots)
+        coordinator?.showSnapShots(map: snapShots)
     }
 }
+
+// ARSessionDelegate
+// Use to handle views
+extension ARController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        guard let frame = session.currentFrame else { return }
+        let state = frame.camera.trackingState
+        
+        // normal state = Good State
+        // others = Bad State
+        switch state {
+        // Good state
+        case .normal:
+            stateManager.manageViewWith(sessionState: .goodState)
+        default:
+            // Bad state
+            stateManager.manageViewWith(sessionState: .badState)
+        }
+    }
+}
+
+

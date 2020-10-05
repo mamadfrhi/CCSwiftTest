@@ -31,7 +31,7 @@ class Network: NetworkService {
                 resultHandler(.failure(e))
             }
         }
-        #endif
+        #else
         
         guard let url = object3D.networkURL else {
             resultHandler(.failure(NetworkError.invalidURL))
@@ -39,8 +39,11 @@ class Network: NetworkService {
         }
         
         downloadTask = URLSession(configuration: .default).downloadTask(with: url) {
+            [weak self]
             (resultURL, response, error) in
-            self.downloadTask = nil
+            guard let sSelf = self else { return}
+
+            sSelf.downloadTask = nil
             guard let localURL = resultURL else {
                 if let err = error {
                     resultHandler(.failure(err))
@@ -74,5 +77,9 @@ class Network: NetworkService {
             }
         }
         downloadTask?.resume()
+        
+        #endif
+        
+        
     }
 }

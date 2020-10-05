@@ -9,7 +9,7 @@
 import UIKit
 
 // Interface
-protocol SnapShotsDrawing {
+protocol SnapShotsDraw {
     // Drawing
     func drawAllSnapShots(snapShots: [SnapShot], on view: UIView)
     func drawSingleSnapshot(x: CGFloat, y:CGFloat, tag: Int, on view: UIView)
@@ -18,13 +18,13 @@ protocol SnapShotsDrawing {
 }
 
 // Make these optional
-extension SnapShotsDrawing {
+extension SnapShotsDraw {
     func drawSingleSnapshot(x: CGFloat, y:CGFloat, tag: Int, on view: UIView) {}
     func calculateScale(from snapShots: [SnapShot], into view: UIView){}
 }
 
 // Implementation
-class SnapShotDrawingOnController: SnapShotsDrawing {
+class SnapShotDrawer: SnapShotsDraw {
     
     weak var snapShotTapDelegate: SnapShotTapDelegate?
     
@@ -34,11 +34,12 @@ class SnapShotDrawingOnController: SnapShotsDrawing {
             return
         }
         
-        let viewWidth = view.frame.size.width
-        let viewHeight = view.frame.size.height
+        // Inset to show better
+        let viewWidth = view.safeAreaLayoutGuide.layoutFrame.width
+        let viewHeight = view.safeAreaLayoutGuide.layoutFrame.height
         
-        // If there is 1 snapshot, put it in the middle
         guard snapShots.count > 1 else {
+            // If there is 1 snapshot, put it in the middle
             drawSingleSnapshot(x: viewWidth / 2, y: viewHeight / 2, tag: 0, on: view)
             return
         }
@@ -53,7 +54,7 @@ class SnapShotDrawingOnController: SnapShotsDrawing {
     }
 
     func drawSingleSnapshot(x: CGFloat, y: CGFloat, tag: Int, on view: UIView) {
-        let pointsize: CGFloat = 16
+        let pointsize: CGFloat = 25
         let dotView = UIView(frame: CGRect(x: x-pointsize/2,
                                            y: y-pointsize/2,
                                            width: pointsize,
@@ -118,15 +119,13 @@ class SnapShotDrawingOnController: SnapShotsDrawing {
     
     @objc
     func didTapDot(_ sender: UITapGestureRecognizer) {
-        print("I'm in implementation")
-        print("\(String(describing: sender.view?.tag))")
         // Send tag to controller to do the rest
         snapShotTapDelegate?.didTap(snapShot: sender.view!.tag)
     }
 }
 
 // Delegate for SnapShot Tapping
-// Delegate Design Pattern
+// **Delegate Design Pattern**
 protocol SnapShotTapDelegate: class {
     func didTap(snapShot atIndex: Int)
 }

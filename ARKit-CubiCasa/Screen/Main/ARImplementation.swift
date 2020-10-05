@@ -16,7 +16,7 @@ class ARImplementation: ARFeature {
     }
     
     func downloadObject() {
-        arController.state = .fetchModel
+        arController.stateManager.state = .fetchModel
         arController.network.loadModel(object3D: .wateringCan) {
             [weak self]
             (result) in
@@ -25,7 +25,7 @@ class ARImplementation: ARFeature {
             case .success(let downloadedObject):
                 print("Model downloaded")
                 sSelf.arController.object = downloadedObject
-                sSelf.arController.state = .objectIsReady
+                sSelf.arController.stateManager.state = .objectIsReady
             case .failure(let error):
                 print("Error when loading model: \(error.localizedDescription)")
             }
@@ -35,17 +35,17 @@ class ARImplementation: ARFeature {
     func drop3DObject() {
         print("Drop model button pressed!")
         guard let myFinalObject = arController.object else {
-            arController.state = .error
+            arController.stateManager.state = .error
             return
         }
         // Place the object
-        // TODO
+        // TODO:S
         let anchorEntity = AnchorEntity(plane: .horizontal)
-        
+
         arController.arView.scene.anchors.append(anchorEntity)
         anchorEntity.addChild(myFinalObject)
         
-        arController.state = .canCaptureSnapshot
+        arController.stateManager.state = .canCaptureSnapshot
     }
     
     func takeSnapShot() {
@@ -55,13 +55,11 @@ class ARImplementation: ARFeature {
             [weak self]
             (arViewImage) in
             guard let image = arViewImage,
-                let sSelf = self else {
-                    return
-            }
+                let sSelf = self else { return}
+            
             let snapShot = SnapShot(image: image,
                                     cameraTransform: cameraTransform)
-            sSelf.arController.snapshots.append(snapShot)
-            sSelf.arController.state = .canShowSnapshots
+            sSelf.arController.snapShots.append(snapShot)
         }
     }
 }
