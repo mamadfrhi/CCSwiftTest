@@ -79,11 +79,9 @@ class AR_UI: UIView {
         // Status Label
         self.addSubview(statusLabel)
         statusLabel.snp.makeConstraints {
-            $0.left.equalToSuperview().offset(10)
-            $0.right.equalTo(self.downloadButton.snp.left).offset(-10)
-            $0.height.equalTo(self.downloadButton.snp.height)
-            $0.center.equalTo(self.downloadButton.snp.center)
-        }
+            $0.width.height.equalTo(100)
+            $0.left.equalToSuperview().offset(8)
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)        }
     }
     
     
