@@ -28,8 +28,9 @@ class StateManager {
             arUI?.statusLabel.text = "Press to download model!"
             print("I'm in initial state.")
         case .fetchModel:
-            arUI?.downloadButton.isHidden = true
             arUI?.statusLabel.text = "I'm downloading model..."
+            
+            arUI?.downloadButton.removeFromSuperview()
             print("Is downloading...")
         case .objectIsReady:
             // Show DropButton
@@ -59,10 +60,13 @@ class StateManager {
         if sessionState == .goodState {
             arUI?.statusLabel.isHidden = false
         }
+
         if sessionState == .goodState && self.state == .objectIsReady{
             arUI?.dropObjectButton.isHidden = false
+        }else if sessionState == .badState && state == .initial {
+            arUI?.statusLabel.isHidden = false
+            arUI?.dropObjectButton.isHidden = true
         }else if sessionState == .badState {
-            // Bad state
             arUI?.statusLabel.isHidden = true
             arUI?.dropObjectButton.isHidden = true
         }
