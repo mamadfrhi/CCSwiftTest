@@ -31,7 +31,6 @@ class ImagePresenterController: UIViewController {
     override func loadView() {
         self.view = imagePresenterView
     }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         show(image: image)

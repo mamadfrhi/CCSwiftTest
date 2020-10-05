@@ -37,8 +37,8 @@ class SnapShotDrawingOnController: SnapShotsDrawing {
         let viewWidth = view.frame.size.width
         let viewHeight = view.frame.size.height
         
-        // If there is 1 snapshot, put it in the middle
         guard snapShots.count > 1 else {
+            // If there is 1 snapshot, put it in the middle
             drawSingleSnapshot(x: viewWidth / 2, y: viewHeight / 2, tag: 0, on: view)
             return
         }
@@ -126,7 +126,7 @@ class SnapShotDrawingOnController: SnapShotsDrawing {
 }
 
 // Delegate for SnapShot Tapping
-// Delegate Design Pattern
+// **Delegate Design Pattern**
 protocol SnapShotTapDelegate: class {
     func didTap(snapShot atIndex: Int)
 }

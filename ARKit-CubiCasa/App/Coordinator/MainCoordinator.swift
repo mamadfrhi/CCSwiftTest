@@ -26,11 +26,16 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(arVC, animated: true)
     }
     
-    func showSnapshotsMap(with snapShots: [SnapShot]) {
-        print("I'm in coordinator!!!!")
-        let mapVC = MapController(snapShots: snapShots)
-        navigationController.present(mapVC,
-                                     animated: true)
+    func showSnapShots(map snapShots: [SnapShot]) {
+        let mapVC = MapController(snapShots: snapShots, coordinator: self)
+        navigationController.pushViewController(mapVC,
+                                                animated: true)
+    }
+    
+    func showSnapShot(image: UIImage) {
+        let imagePresenterVC = ImagePresenterController(image: image)
+        // Show modally
+        navigationController.present(imagePresenterVC, animated: true)
     }
 }
 
