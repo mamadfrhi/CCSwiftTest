@@ -22,6 +22,7 @@
 		877AADB9252A42F700023CA2 /* ImagePresenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB8252A42F700023CA2 /* ImagePresenterController.swift */; };
 		877AADBB252A430600023CA2 /* ImagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADBA252A430600023CA2 /* ImagePresenterView.swift */; };
 		87860BB52528777C00DC6732 /* AR_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* AR_UI.swift */; };
+		878E76C2252B16CD00C4283B /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E76C1252B16CD00C4283B /* StateManager.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* ARController.swift */; };
 		87AE567F25285A77006F0590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87AE567E25285A77006F0590 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		877AADB8252A42F700023CA2 /* ImagePresenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterController.swift; sourceTree = "<group>"; };
 		877AADBA252A430600023CA2 /* ImagePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterView.swift; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* AR_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_UI.swift; sourceTree = "<group>"; };
+		878E76C1252B16CD00C4283B /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87AE567725285A76006F0590 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				8726068E25289CD200C828F3 /* ARFeature.swift */,
 				8708DFD725299AA100EAA5D8 /* ARImplementation.swift */,
 				87860BB42528777C00DC6732 /* AR_UI.swift */,
+				878E76C1252B16CD00C4283B /* StateManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			files = (
 				8726068C252898B400C828F3 /* Coordinator.swift in Sources */,
 				877AADBB252A430600023CA2 /* ImagePresenterView.swift in Sources */,
+				878E76C2252B16CD00C4283B /* StateManager.swift in Sources */,
 				877AADB2252A071100023CA2 /* Location.swift in Sources */,
 				87AE567825285A76006F0590 /* ARController.swift in Sources */,
 				8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */,

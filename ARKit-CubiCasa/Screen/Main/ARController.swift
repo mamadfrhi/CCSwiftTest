@@ -11,16 +11,15 @@ import RealityKit
 import ARKit
 import SnapKit
 
-enum ARControllerState {
+enum ARControllerState: Equatable {
     case initial
     case fetchModel
     case objectIsReady
     case canCaptureSnapshot
-    case canShowSnapshots
     case error
 }
 
-class ARController: UIViewController, ARSessionDelegate {
+class ARController: UIViewController {
     
     //---------------------
     // MARK: Init
@@ -28,6 +27,7 @@ class ARController: UIViewController, ARSessionDelegate {
     init(coordinator: MainCoordinator, network: NetworkService) {
         self.coordinator = coordinator
         self.network = network
+        self.stateManager = StateManager(arUI: self.arControllerUI)
         super.init(nibName: nil, bundle: nil)
         self.features = ARImplementation(arController: self)
     }
@@ -45,48 +45,15 @@ class ARController: UIViewController, ARSessionDelegate {
     var arView: ARView!
     
     // Dependency
-    var network: NetworkService
     weak var coordinator: MainCoordinator?
+    var stateManager: StateManager
+    var network: NetworkService
     var features: ARFeature!
     
     //---------------------
     // MARK: State Management
     //---------------------
-    var state: ARControllerState = .initial {
-        didSet {
-            switch state {
-            case .initial:
-                // Show coach view
-                self.arControllerUI.coachView.isHidden = false
-                //TODO
-//                self.arControllerUI.showSnapshotsButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to download model!"
-                print("I'm in initial state.")
-            case .fetchModel:
-                arControllerUI.downloadButton.isHidden = true
-                arControllerUI.statusLabel.text = "I'm downloading model..."
-                print("Is downloading...")
-            case .objectIsReady:
-                // Show DropButton
-                arControllerUI.downloadButton.isHidden = true
-                arControllerUI.dropObjectButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to drop object."
-                print("Show the drop button")
-            case .canCaptureSnapshot:
-                arControllerUI.dropObjectButton.isHidden = true
-                arControllerUI.snapshotTakerButton.isHidden = false
-                arControllerUI.statusLabel.text = "Press to capture snapshot."
-                print("now you can get snapshot")
-            case .canShowSnapshots:
-                arControllerUI.showSnapshotsButton.isHidden = false
-                arControllerUI.statusLabel.text = "Now, you can watch snapshots map"
-                print("Go to see on Map")
-            case .error:
-                self.arControllerUI.statusLabel.text = "An error occured!"
-                
-            }
-        }
-    }
+    
     
     //---------------------
     // MARK: LifeCycle
@@ -99,9 +66,9 @@ class ARController: UIViewController, ARSessionDelegate {
         super.viewDidLoad()
         self.title = "AR View"
         //TODO
-//        arView.session.delegate = self
-//        arControllerUI.coachView.session = arView.session
-        self.state = .initial
+        arView.session.delegate = self
+        arControllerUI.coachView.session = arView.session
+        stateManager.state = .initial
         addGestures()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -142,6 +109,27 @@ class ARController: UIViewController, ARSessionDelegate {
         
     }
 }
+
+extension ARController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        
+        guard let frame = session.currentFrame else { return }
+        let state = frame.camera.trackingState
+        
+        // normal state = Good State
+        // others = Bad State
+        switch state {
+        // Good state
+        case .normal:
+            stateManager.manageViewWith(sessionState: .goodState)
+        default:
+            // Bad state
+            stateManager.manageViewWith(sessionState: .badState)
+        }
+    }
+}
+
+
 
 //---------------------
 // MARK: Features
