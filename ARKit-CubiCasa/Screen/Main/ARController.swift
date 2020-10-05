@@ -25,9 +25,9 @@ class ARController: UIViewController {
     // MARK: Init
     //---------------------
     init(coordinator: MainCoordinator, network: NetworkService) {
+        self.stateManager = StateManager(arUI: self.arControllerUI)
         self.coordinator = coordinator
         self.network = network
-        self.stateManager = StateManager(arUI: self.arControllerUI)
         super.init(nibName: nil, bundle: nil)
         self.features = ARImplementation(arController: self)
     }
@@ -60,12 +60,13 @@ class ARController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "AR View"
+        addGestures()
         //TODO
         arView.session.delegate = self
         arControllerUI.coachView.session = arView.session
         stateManager.state = .initial
-        addGestures()
     }
+    // Handle UINavigationBar
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -82,13 +83,11 @@ class ARController: UIViewController {
         // Add gesture on drop Download Button
         let downloadButtonTapped = UITapGestureRecognizer(target: self,
                                                           action: #selector(downloadObject))
-        arControllerUI.downloadButton.isUserInteractionEnabled = true
         arControllerUI.downloadButton.addGestureRecognizer(downloadButtonTapped)
         
         // Add gesture on Drop Button
         let dropButtonTapped = UITapGestureRecognizer(target: self,
                                                       action: #selector(drop3DObject))
-        arControllerUI.dropObjectButton.isUserInteractionEnabled = true
         arControllerUI.dropObjectButton.addGestureRecognizer(dropButtonTapped)
         
         // Add gesture on Snapshot Button
@@ -98,7 +97,7 @@ class ARController: UIViewController {
         
         // Add gesture on SnapshotMap Button
         // Navigate
-        arControllerUI.showSnapshotsButton.addTarget(self,
+        arControllerUI.showSnapShotsMapButton.addTarget(self,
                                                action: #selector(goToSnapShotsMap),
                                                for: .touchUpInside)
         

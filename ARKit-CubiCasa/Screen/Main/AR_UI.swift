@@ -66,8 +66,8 @@ class AR_UI: UIView {
         }
         
         // Show SnapShots Button
-        self.addSubview(showSnapshotsButton)
-        showSnapshotsButton.snp.makeConstraints {
+        self.addSubview(showSnapShotsMapButton)
+        showSnapShotsMapButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.left.equalTo(self.snapshotTakerButton.snp.right).offset(10)
             $0.centerY.equalTo(self.snapshotTakerButton.snp.centerY)
@@ -121,7 +121,7 @@ class AR_UI: UIView {
         return btn
     }()
     
-    var showSnapshotsButton: RoundUIButton = {
+    var showSnapShotsMapButton: RoundUIButton = {
         let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "mappin.and.ellipse")
         btn.setImage(image,
