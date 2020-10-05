@@ -41,6 +41,7 @@ class StateManager {
         case .canCaptureSnapshot:
             // Object dropped
             arUI?.dropObjectButton.removeFromSuperview()
+            arUI?.coachView.removeFromSuperview()
             
             arUI?.snapshotTakerButton.isHidden = false
             arUI?.showSnapshotsButton.isHidden = false
@@ -57,15 +58,19 @@ class StateManager {
     }
     
     func manageViewWith(sessionState: ARSessionState) {
+        if state == .canCaptureSnapshot {
+            return
+        }
+        
         if sessionState == .goodState {
             arUI?.statusLabel.isHidden = false
         }
 
-        if sessionState == .goodState && self.state == .objectIsReady{
-            arUI?.dropObjectButton.isHidden = false
-        }else if sessionState == .badState && state == .initial {
+        if sessionState == .badState && state == .initial {
             arUI?.statusLabel.isHidden = false
             arUI?.dropObjectButton.isHidden = true
+        }else if sessionState == .goodState && self.state == .objectIsReady{
+            arUI?.dropObjectButton.isHidden = false
         }else if sessionState == .badState {
             arUI?.statusLabel.isHidden = true
             arUI?.dropObjectButton.isHidden = true

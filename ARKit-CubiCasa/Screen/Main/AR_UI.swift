@@ -133,7 +133,6 @@ class AR_UI: UIView {
     
     
     
-    
     let coachView : ARCoachingOverlayView = {
         let coachingView = ARCoachingOverlayView()
         coachingView.isHidden = true

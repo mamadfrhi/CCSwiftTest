@@ -105,27 +105,6 @@ class ARController: UIViewController {
     }
 }
 
-// ARSessionDelegate
-extension ARController: ARSessionDelegate {
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        guard let frame = session.currentFrame else { return }
-        let state = frame.camera.trackingState
-        
-        // normal state = Good State
-        // others = Bad State
-        switch state {
-        // Good state
-        case .normal:
-            stateManager.manageViewWith(sessionState: .goodState)
-        default:
-            // Bad state
-            stateManager.manageViewWith(sessionState: .badState)
-        }
-    }
-}
-
-
-
 //---------------------
 // MARK: Features
 //---------------------
@@ -154,3 +133,25 @@ extension ARController: ARFeature {
         coordinator?.showSnapShots(map: snapShots)
     }
 }
+
+// ARSessionDelegate
+// Use to handle views
+extension ARController: ARSessionDelegate {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        guard let frame = session.currentFrame else { return }
+        let state = frame.camera.trackingState
+        
+        // normal state = Good State
+        // others = Bad State
+        switch state {
+        // Good state
+        case .normal:
+            stateManager.manageViewWith(sessionState: .goodState)
+        default:
+            // Bad state
+            stateManager.manageViewWith(sessionState: .badState)
+        }
+    }
+}
+
+
