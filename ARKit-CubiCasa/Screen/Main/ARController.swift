@@ -51,11 +51,6 @@ class ARController: UIViewController {
     var features: ARFeature!
     
     //---------------------
-    // MARK: State Management
-    //---------------------
-    
-    
-    //---------------------
     // MARK: LifeCycle
     //---------------------
     override func loadView() {
@@ -110,9 +105,9 @@ class ARController: UIViewController {
     }
 }
 
+// ARSessionDelegate
 extension ARController: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        
         guard let frame = session.currentFrame else { return }
         let state = frame.camera.trackingState
         
