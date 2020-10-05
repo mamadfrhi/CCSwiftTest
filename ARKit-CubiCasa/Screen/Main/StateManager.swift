@@ -43,7 +43,7 @@ class StateManager {
             arUI?.dropObjectButton.removeFromSuperview()
             arUI?.coachView.removeFromSuperview()
             
-            arUI?.snapshotTakerButton.isHidden = false
+            arUI?.cameraButton.isHidden = false
             arUI?.showSnapShotsMapButton.isHidden = false
             arUI?.statusLabel.text = "Press to capture snapshot Or see map."
         case .error:
@@ -51,7 +51,7 @@ class StateManager {
             arUI?.downloadButton.isHidden = true
             arUI?.dropObjectButton.isHidden = true
             arUI?.showSnapShotsMapButton.isHidden = true
-            arUI?.snapshotTakerButton.isHidden = true
+            arUI?.cameraButton.isHidden = true
             arUI?.statusLabel.text = "An error occured!"
         }
     }
