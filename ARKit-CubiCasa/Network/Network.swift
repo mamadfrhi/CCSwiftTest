@@ -31,7 +31,7 @@ class Network: NetworkService {
                 resultHandler(.failure(e))
             }
         }
-        #endif
+        #else
         
         guard let url = object3D.networkURL else {
             resultHandler(.failure(NetworkError.invalidURL))
@@ -74,5 +74,9 @@ class Network: NetworkService {
             }
         }
         downloadTask?.resume()
+        
+        #endif
+        
+        
     }
 }

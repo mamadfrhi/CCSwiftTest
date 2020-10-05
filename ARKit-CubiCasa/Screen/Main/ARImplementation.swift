@@ -55,9 +55,8 @@ class ARImplementation: ARFeature {
             [weak self]
             (arViewImage) in
             guard let image = arViewImage,
-                let sSelf = self else {
-                    return
-            }
+                let sSelf = self else { return}
+            
             let snapShot = SnapShot(image: image,
                                     cameraTransform: cameraTransform)
             sSelf.arController.snapShots.append(snapShot)
