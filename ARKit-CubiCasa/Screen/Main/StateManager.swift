@@ -44,7 +44,7 @@ class StateManager {
             arUI?.coachView.removeFromSuperview()
             
             arUI?.snapshotTakerButton.isHidden = false
-            arUI?.showSnapshotsButton.isHidden = false
+            arUI?.showSnapShotsMapButton.isHidden = false
             arUI?.statusLabel.text = "Press to capture snapshot Or see map."
         case .error:
             arUI?.statusLabel.isHidden = false
@@ -52,7 +52,7 @@ class StateManager {
             
             arUI?.downloadButton.isHidden = true
             arUI?.dropObjectButton.isHidden = true
-            arUI?.showSnapshotsButton.isHidden = true
+            arUI?.showSnapShotsMapButton.isHidden = true
             arUI?.snapshotTakerButton.isHidden = true
         }
     }
