@@ -34,8 +34,9 @@ class SnapShotDrawer: SnapShotsDraw {
             return
         }
         
-        let viewWidth = view.frame.size.width
-        let viewHeight = view.frame.size.height
+        // Inset to show better
+        let viewWidth = view.safeAreaLayoutGuide.layoutFrame.width
+        let viewHeight = view.safeAreaLayoutGuide.layoutFrame.height
         
         guard snapShots.count > 1 else {
             // If there is 1 snapshot, put it in the middle
@@ -53,7 +54,7 @@ class SnapShotDrawer: SnapShotsDraw {
     }
 
     func drawSingleSnapshot(x: CGFloat, y: CGFloat, tag: Int, on view: UIView) {
-        let pointsize: CGFloat = 16
+        let pointsize: CGFloat = 25
         let dotView = UIView(frame: CGRect(x: x-pointsize/2,
                                            y: y-pointsize/2,
                                            width: pointsize,
