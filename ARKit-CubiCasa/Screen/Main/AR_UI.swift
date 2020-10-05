@@ -105,7 +105,7 @@ class AR_UI: UIView {
         return btn
     }()
     
-     var dropObjectButton: RoundUIButton = {
+    var dropObjectButton: RoundUIButton = {
         let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "arkit")
         btn.setImage(image, for: .normal)
@@ -117,8 +117,7 @@ class AR_UI: UIView {
     var cameraButton: RoundUIButton = {
         let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "camera")
-        btn.setImage(image,
-                     for: .normal)
+        btn.setImage(image, for: .normal)
         btn.isHidden = true
         return btn
     }()
