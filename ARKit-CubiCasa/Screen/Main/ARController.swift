@@ -11,14 +11,6 @@ import RealityKit
 import ARKit
 import SnapKit
 
-enum ARControllerState: Equatable {
-    case initial
-    case fetchModel
-    case objectIsReady
-    case canCaptureSnapshot
-    case error
-}
-
 class ARController: UIViewController {
     
     //---------------------
