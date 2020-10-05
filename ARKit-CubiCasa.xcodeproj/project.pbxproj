@@ -19,6 +19,8 @@
 		877AADB2252A071100023CA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB1252A071100023CA2 /* Location.swift */; };
 		877AADB4252A112A00023CA2 /* wateringcan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 877AADB3252A112A00023CA2 /* wateringcan.usdz */; };
 		877AADB6252A16D300023CA2 /* SnapShotDrawingOnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB5252A16D300023CA2 /* SnapShotDrawingOnController.swift */; };
+		877AADB9252A42F700023CA2 /* ImagePresenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB8252A42F700023CA2 /* ImagePresenterController.swift */; };
+		877AADBB252A430600023CA2 /* ImagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADBA252A430600023CA2 /* ImagePresenterView.swift */; };
 		87860BB52528777C00DC6732 /* AR_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* AR_UI.swift */; };
 		87AE567625285A76006F0590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567525285A76006F0590 /* AppDelegate.swift */; };
 		87AE567825285A76006F0590 /* ARController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AE567725285A76006F0590 /* ARController.swift */; };
@@ -41,6 +43,8 @@
 		877AADB1252A071100023CA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		877AADB3252A112A00023CA2 /* wateringcan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wateringcan.usdz; sourceTree = "<group>"; };
 		877AADB5252A16D300023CA2 /* SnapShotDrawingOnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShotDrawingOnController.swift; sourceTree = "<group>"; };
+		877AADB8252A42F700023CA2 /* ImagePresenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterController.swift; sourceTree = "<group>"; };
+		877AADBA252A430600023CA2 /* ImagePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterView.swift; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* AR_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_UI.swift; sourceTree = "<group>"; };
 		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			children = (
 				8726068D25289CA000C828F3 /* Main */,
 				872F9F5D2529B5A600A55D91 /* Map */,
+				877AADB7252A42D900023CA2 /* ImagePresenter */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -147,6 +152,15 @@
 				8708DFD92529A31400EAA5D8 /* BluredUILabel.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		877AADB7252A42D900023CA2 /* ImagePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				877AADB8252A42F700023CA2 /* ImagePresenterController.swift */,
+				877AADBA252A430600023CA2 /* ImagePresenterView.swift */,
+			);
+			path = ImagePresenter;
 			sourceTree = "<group>";
 		};
 		87AE566925285A76006F0590 = {
@@ -314,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8726068C252898B400C828F3 /* Coordinator.swift in Sources */,
+				877AADBB252A430600023CA2 /* ImagePresenterView.swift in Sources */,
 				877AADB2252A071100023CA2 /* Location.swift in Sources */,
 				87AE567825285A76006F0590 /* ARController.swift in Sources */,
 				8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */,
@@ -324,6 +339,7 @@
 				874003F22528B6BD008FEE06 /* RoundUIButton.swift in Sources */,
 				872F9F5F2529B5B700A55D91 /* MapController.swift in Sources */,
 				874003F42528D20E008FEE06 /* SnapShot.swift in Sources */,
+				877AADB9252A42F700023CA2 /* ImagePresenterController.swift in Sources */,
 				877AADB6252A16D300023CA2 /* SnapShotDrawingOnController.swift in Sources */,
 				87860BB52528777C00DC6732 /* AR_UI.swift in Sources */,
 				87AE568A25285C12006F0590 /* NetworkService.swift in Sources */,
