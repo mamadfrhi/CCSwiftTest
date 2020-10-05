@@ -20,9 +20,11 @@ class ImagePresenterController: UIViewController {
         self.image = image
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    deinit {
+        print("Class \(type(of: self)) doesn't have retain cycle.")
     }
     
     //---------------------
