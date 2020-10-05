@@ -23,7 +23,21 @@ class RoundUIButton: UIButton {
         self.contentHorizontalAlignment = .fill
         self.contentVerticalAlignment = .fill
         
+        // Inset for icon
         self.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
         
+        addAnimation()
+    }
+    
+    private func addAnimation() {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.4
+        pulse.fromValue = 0.98
+        pulse.toValue = 1.0
+        pulse.autoreverses = true
+        pulse.repeatCount = .infinity
+        pulse.initialVelocity = 0.5
+        pulse.damping = 1.0
+        layer.add(pulse, forKey: nil)
     }
 }

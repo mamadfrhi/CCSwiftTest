@@ -53,9 +53,9 @@ class ARController: UIViewController {
         super.viewDidLoad()
         self.title = "AR View"
         addGestures()
-        //TODO
-        arView.session.delegate = self
-        arControllerUI.coachView.session = arView.session
+        // TODO:S
+//        arView.session.delegate = self
+//        arControllerUI.coachView.session = arView.session
         stateManager.state = .initial
     }
     // Handle UINavigationBar

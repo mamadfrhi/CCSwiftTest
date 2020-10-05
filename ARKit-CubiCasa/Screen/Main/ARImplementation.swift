@@ -39,11 +39,11 @@ class ARImplementation: ARFeature {
             return
         }
         // Place the object
-        // TODO
-        let anchorEntity = AnchorEntity(plane: .horizontal)
-        
-        arController.arView.scene.anchors.append(anchorEntity)
-        anchorEntity.addChild(myFinalObject)
+        // TODO:S
+//        let anchorEntity = AnchorEntity(plane: .horizontal)
+//        
+//        arController.arView.scene.anchors.append(anchorEntity)
+//        anchorEntity.addChild(myFinalObject)
         
         arController.stateManager.state = .canCaptureSnapshot
     }
