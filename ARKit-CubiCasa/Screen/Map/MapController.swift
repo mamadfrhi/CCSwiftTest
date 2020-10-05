@@ -15,7 +15,7 @@ class MapController: UIViewController {
     init(snapShots: [SnapShot], coordinator: MainCoordinator) {
         self.snapShots = snapShots
         self.coordinator = coordinator
-        self.snapShotDrawer = SnapShotDrawingOnController()
+        self.snapShotDrawer = SnapShotDrawer()
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .black
         snapShotDrawer.snapShotTapDelegate = self
@@ -42,12 +42,12 @@ class MapController: UIViewController {
     //---------------------
     private var snapShots: [SnapShot]
     // Dependency
-    private var snapShotDrawer: SnapShotDrawingOnController
+    private var snapShotDrawer: SnapShotDrawer
     weak var coordinator: MainCoordinator?
     
 }
 
-extension MapController: SnapShotsDrawing, SnapShotTapDelegate {
+extension MapController: SnapShotsDraw, SnapShotTapDelegate {
     func drawAllSnapShots(snapShots: [SnapShot], on view: UIView) {
         snapShotDrawer.drawAllSnapShots(snapShots: snapShots, on: view)
     }

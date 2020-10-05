@@ -18,7 +18,7 @@
 		874003F42528D20E008FEE06 /* SnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874003F32528D20E008FEE06 /* SnapShot.swift */; };
 		877AADB2252A071100023CA2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB1252A071100023CA2 /* Location.swift */; };
 		877AADB4252A112A00023CA2 /* wateringcan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 877AADB3252A112A00023CA2 /* wateringcan.usdz */; };
-		877AADB6252A16D300023CA2 /* SnapShotDrawingOnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB5252A16D300023CA2 /* SnapShotDrawingOnController.swift */; };
+		877AADB6252A16D300023CA2 /* SnapShotDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB5252A16D300023CA2 /* SnapShotDrawer.swift */; };
 		877AADB9252A42F700023CA2 /* ImagePresenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADB8252A42F700023CA2 /* ImagePresenterController.swift */; };
 		877AADBB252A430600023CA2 /* ImagePresenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877AADBA252A430600023CA2 /* ImagePresenterView.swift */; };
 		87860BB52528777C00DC6732 /* AR_UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87860BB42528777C00DC6732 /* AR_UI.swift */; };
@@ -42,7 +42,7 @@
 		874003F32528D20E008FEE06 /* SnapShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShot.swift; sourceTree = "<group>"; };
 		877AADB1252A071100023CA2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		877AADB3252A112A00023CA2 /* wateringcan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wateringcan.usdz; sourceTree = "<group>"; };
-		877AADB5252A16D300023CA2 /* SnapShotDrawingOnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShotDrawingOnController.swift; sourceTree = "<group>"; };
+		877AADB5252A16D300023CA2 /* SnapShotDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapShotDrawer.swift; sourceTree = "<group>"; };
 		877AADB8252A42F700023CA2 /* ImagePresenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterController.swift; sourceTree = "<group>"; };
 		877AADBA252A430600023CA2 /* ImagePresenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePresenterView.swift; sourceTree = "<group>"; };
 		87860BB42528777C00DC6732 /* AR_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_UI.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				872F9F5E2529B5B700A55D91 /* MapController.swift */,
-				877AADB5252A16D300023CA2 /* SnapShotDrawingOnController.swift */,
+				877AADB5252A16D300023CA2 /* SnapShotDrawer.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				872F9F5F2529B5B700A55D91 /* MapController.swift in Sources */,
 				874003F42528D20E008FEE06 /* SnapShot.swift in Sources */,
 				877AADB9252A42F700023CA2 /* ImagePresenterController.swift in Sources */,
-				877AADB6252A16D300023CA2 /* SnapShotDrawingOnController.swift in Sources */,
+				877AADB6252A16D300023CA2 /* SnapShotDrawer.swift in Sources */,
 				87860BB52528777C00DC6732 /* AR_UI.swift in Sources */,
 				87AE568A25285C12006F0590 /* NetworkService.swift in Sources */,
 				87AE568F25285E75006F0590 /* Object3D.swift in Sources */,
