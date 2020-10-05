@@ -23,6 +23,9 @@ class MapController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    deinit {
+        print("Class \(type(of: self)) doesn't have retain cycle.")
+    }
     
     //---------------------
     // MARK: LifeCycle
