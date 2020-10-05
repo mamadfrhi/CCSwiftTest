@@ -11,6 +11,7 @@ import RealityKit
 import ARKit
 import SnapKit
 
+// I set AR_UI, because ARView is reserved by the OS
 class AR_UI: UIView {
     
     //--------------------------------------
@@ -81,7 +82,8 @@ class AR_UI: UIView {
         statusLabel.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.left.equalToSuperview().offset(8)
-            $0.bottom.equalTo(snp_bottomMargin).offset(-20)        }
+            $0.bottom.equalTo(snp_bottomMargin).offset(-20)
+        }
     }
     
     

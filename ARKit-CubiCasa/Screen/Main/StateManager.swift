@@ -28,9 +28,9 @@ class StateManager {
             arUI?.statusLabel.text = "Press to download model!"
             print("I'm in initial state.")
         case .fetchModel:
-            arUI?.statusLabel.text = "I'm downloading model..."
-            
             arUI?.downloadButton.removeFromSuperview()
+            
+            arUI?.statusLabel.text = "I'm downloading model..."
             print("Is downloading...")
         case .objectIsReady:
             // Show DropButton
@@ -48,16 +48,16 @@ class StateManager {
             arUI?.statusLabel.text = "Press to capture snapshot Or see map."
         case .error:
             arUI?.statusLabel.isHidden = false
-            arUI?.statusLabel.text = "An error occured!"
-            
             arUI?.downloadButton.isHidden = true
             arUI?.dropObjectButton.isHidden = true
             arUI?.showSnapShotsMapButton.isHidden = true
             arUI?.snapshotTakerButton.isHidden = true
+            arUI?.statusLabel.text = "An error occured!"
         }
     }
     
     func manageViewWith(sessionState: ARSessionState) {
+        //TODO: Do it cleaner in SwitchCase
         if state == .canCaptureSnapshot {
             return
         }
@@ -76,9 +76,4 @@ class StateManager {
             arUI?.dropObjectButton.isHidden = true
         }
     }
-}
-
-enum ARSessionState {
-    case goodState
-    case badState
 }
