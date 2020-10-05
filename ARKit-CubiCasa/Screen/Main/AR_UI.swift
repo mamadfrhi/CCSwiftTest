@@ -44,8 +44,8 @@ class AR_UI: UIView {
         
         // Add Buttons
         // Download Button
-        self.addSubview(snapshotTakerButton)
-        snapshotTakerButton.snp.makeConstraints {
+        self.addSubview(cameraButton)
+        cameraButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(snp_bottomMargin).offset(-20)
@@ -70,8 +70,8 @@ class AR_UI: UIView {
         self.addSubview(showSnapShotsMapButton)
         showSnapShotsMapButton.snp.makeConstraints {
             $0.width.height.equalTo(100)
-            $0.left.equalTo(self.snapshotTakerButton.snp.right).offset(10)
-            $0.centerY.equalTo(self.snapshotTakerButton.snp.centerY)
+            $0.left.equalTo(self.cameraButton.snp.right).offset(10)
+            $0.centerY.equalTo(self.cameraButton.snp.centerY)
             
         }
         
@@ -114,7 +114,7 @@ class AR_UI: UIView {
     }()
     
     
-    var snapshotTakerButton: RoundUIButton = {
+    var cameraButton: RoundUIButton = {
         let btn = RoundUIButton(type: .custom)
         let image = UIImage(systemName: "camera")
         btn.setImage(image,
