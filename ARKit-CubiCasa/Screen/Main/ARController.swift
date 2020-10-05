@@ -46,7 +46,7 @@ class ARController: UIViewController, ARSessionDelegate {
     
     // Dependency
     var network: NetworkService
-    var coordinator: MainCoordinator?
+    weak var coordinator: MainCoordinator?
     var features: ARFeature!
     
     //---------------------
@@ -97,12 +97,20 @@ class ARController: UIViewController, ARSessionDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        self.title = "AR View"
         //TODO
 //        arView.session.delegate = self
 //        arControllerUI.coachView.session = arView.session
         self.state = .initial
         addGestures()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     //---------------------
@@ -129,7 +137,7 @@ class ARController: UIViewController, ARSessionDelegate {
         // Add gesture on SnapshotMap Button
         // Navigate
         arControllerUI.showSnapshotsButton.addTarget(self,
-                                               action: #selector(goToSnapshotsMap),
+                                               action: #selector(goToSnapShotsMap),
                                                for: .touchUpInside)
         
     }
@@ -155,13 +163,13 @@ extension ARController: ARFeature {
     }
     
     @objc
-    func goToSnapshotsMap() {
+    func goToSnapShotsMap() {
         snapShots.append(SnapShot(image: UIImage(),
                                   cameraTransform: Transform()))
         guard snapShots.count > 0 else {
             self.arControllerUI.statusLabel.text = "Please capture snapshot."
             return
         }
-        coordinator?.showSnapshotsMap(with: snapShots)
+        coordinator?.showSnapShots(map: snapShots)
     }
 }
