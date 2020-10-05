@@ -119,8 +119,6 @@ class SnapShotDrawer: SnapShotsDraw {
     
     @objc
     func didTapDot(_ sender: UITapGestureRecognizer) {
-        print("I'm in implementation")
-        print("\(String(describing: sender.view?.tag))")
         // Send tag to controller to do the rest
         snapShotTapDelegate?.didTap(snapShot: sender.view!.tag)
     }
