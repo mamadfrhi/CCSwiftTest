@@ -60,7 +60,7 @@
 		87860BB42528777C00DC6732 /* AR_UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AR_UI.swift; sourceTree = "<group>"; };
 		878E76C1252B16CD00C4283B /* StateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateManager.swift; sourceTree = "<group>"; };
 		878E76C3252B549B00C4283B /* AREnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AREnum.swift; sourceTree = "<group>"; };
-		87AE567225285A76006F0590 /* ARKit-CubiCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARKit-CubiCasa.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87AE567225285A76006F0590 /* CCSwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCSwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AE567525285A76006F0590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87AE567725285A76006F0590 /* ARController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARController.swift; sourceTree = "<group>"; };
 		87AE567E25285A77006F0590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		87AE566925285A76006F0590 = {
 			isa = PBXGroup;
 			children = (
-				87AE567425285A76006F0590 /* ARKit-CubiCasa */,
+				87AE567425285A76006F0590 /* CCSwiftTest */,
 				87AE567325285A76006F0590 /* Products */,
 				5B9F40D8A5B6BDCD5A3467C7 /* Pods */,
 				4A76A76EF61CCCFE15523DF8 /* Frameworks */,
@@ -205,12 +205,12 @@
 		87AE567325285A76006F0590 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87AE567225285A76006F0590 /* ARKit-CubiCasa.app */,
+				87AE567225285A76006F0590 /* CCSwiftTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87AE567425285A76006F0590 /* ARKit-CubiCasa */ = {
+		87AE567425285A76006F0590 /* CCSwiftTest */ = {
 			isa = PBXGroup;
 			children = (
 				8728773A25286954007B322B /* App */,
@@ -220,7 +220,7 @@
 				8728773C25286975007B322B /* Resources */,
 				874003F02528B65C008FEE06 /* CustomViews */,
 			);
-			path = "ARKit-CubiCasa";
+			path = CCSwiftTest;
 			sourceTree = "<group>";
 		};
 		87AE568D25285E32006F0590 /* Model */ = {
@@ -245,9 +245,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		87AE567125285A76006F0590 /* ARKit-CubiCasa */ = {
+		87AE567125285A76006F0590 /* CCSwiftTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87AE568625285A77006F0590 /* Build configuration list for PBXNativeTarget "ARKit-CubiCasa" */;
+			buildConfigurationList = 87AE568625285A77006F0590 /* Build configuration list for PBXNativeTarget "CCSwiftTest" */;
 			buildPhases = (
 				FA35750FD375ED19BF26C13A /* [CP] Check Pods Manifest.lock */,
 				87AE566E25285A76006F0590 /* Sources */,
@@ -259,9 +259,9 @@
 			);
 			dependencies = (
 			);
-			name = "ARKit-CubiCasa";
+			name = CCSwiftTest;
 			productName = "ARKit-CubiCasa";
-			productReference = 87AE567225285A76006F0590 /* ARKit-CubiCasa.app */;
+			productReference = 87AE567225285A76006F0590 /* CCSwiftTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -279,7 +279,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 87AE566D25285A76006F0590 /* Build configuration list for PBXProject "ARKit-CubiCasa" */;
+			buildConfigurationList = 87AE566D25285A76006F0590 /* Build configuration list for PBXProject "CCSwiftTest" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -292,7 +292,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				87AE567125285A76006F0590 /* ARKit-CubiCasa */,
+				87AE567125285A76006F0590 /* CCSwiftTest */,
 			);
 		};
 /* End PBXProject section */
@@ -508,7 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GB4GGS54M;
-				INFOPLIST_FILE = "$(SRCROOT)/ARKit-CubiCasa/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CCSwiftTest/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,7 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GB4GGS54M;
-				INFOPLIST_FILE = "$(SRCROOT)/ARKit-CubiCasa/App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CCSwiftTest/App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,7 +544,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87AE566D25285A76006F0590 /* Build configuration list for PBXProject "ARKit-CubiCasa" */ = {
+		87AE566D25285A76006F0590 /* Build configuration list for PBXProject "CCSwiftTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87AE568425285A77006F0590 /* Debug */,
@@ -553,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87AE568625285A77006F0590 /* Build configuration list for PBXNativeTarget "ARKit-CubiCasa" */ = {
+		87AE568625285A77006F0590 /* Build configuration list for PBXNativeTarget "CCSwiftTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87AE568725285A77006F0590 /* Debug */,
