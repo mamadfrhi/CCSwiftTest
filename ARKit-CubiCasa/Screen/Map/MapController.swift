@@ -17,7 +17,6 @@ class MapController: UIViewController {
         self.coordinator = coordinator
         self.snapShotDrawer = SnapShotDrawer()
         super.init(nibName: nil, bundle: nil)
-        self.view.backgroundColor = .black
         snapShotDrawer.snapShotTapDelegate = self
     }
     required init?(coder: NSCoder) {
@@ -30,20 +29,27 @@ class MapController: UIViewController {
     //---------------------
     // MARK: LifeCycle
     //---------------------
+    override func loadView() {
+        let mapView = MapView()
+        self.view = mapView
+        self.mapView = mapView.base
+    }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         self.title = "Snapshots Map"
-        self.clearSnapShots(from: self.view)
+        self.clearSnapShots(from: self.mapView)
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.drawAllSnapShots(snapShots: self.snapShots, on: self.view)
+        self.drawAllSnapShots(snapShots: self.snapShots, on: self.mapView)
     }
     
     //---------------------
     // MARK: Variables
     //---------------------
     private var snapShots: [SnapShot]
+    var mapView: UIView!
+    
     // Dependency
     private var snapShotDrawer: SnapShotDrawer
     weak var coordinator: MainCoordinator?
@@ -52,11 +58,11 @@ class MapController: UIViewController {
 
 extension MapController: SnapShotsDraw, SnapShotTapDelegate {
     func drawAllSnapShots(snapShots: [SnapShot], on view: UIView) {
-        snapShotDrawer.drawAllSnapShots(snapShots: snapShots, on: view)
+        snapShotDrawer.drawAllSnapShots(snapShots: snapShots, on: self.mapView)
     }
     
     func clearSnapShots(from view: UIView) {
-        snapShotDrawer.clearSnapShots(from: view)
+        snapShotDrawer.clearSnapShots(from: self.mapView)
     }
     
     func didTap(snapShot atIndex: Int) {
