@@ -53,7 +53,6 @@ class ARController: UIViewController {
         super.viewDidLoad()
         self.title = "AR View"
         addGestures()
-        // TODO:S
         arView.session.delegate = self
         arControllerUI.coachView.session = arView.session
         stateManager.state = .initial

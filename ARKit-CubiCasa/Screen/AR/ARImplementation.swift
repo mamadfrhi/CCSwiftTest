@@ -39,7 +39,6 @@ class ARImplementation: ARFeature {
             return
         }
         // Place the object
-        // TODO:S
         let anchorEntity = AnchorEntity(plane: .horizontal)
 
         arController.arView.scene.anchors.append(anchorEntity)

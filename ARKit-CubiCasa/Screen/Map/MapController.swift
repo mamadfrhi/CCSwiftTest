@@ -71,12 +71,3 @@ extension MapController: SnapShotsDraw, SnapShotTapDelegate {
         coordinator?.showSnapShot(image: snapShotImage)
     }
 }
-
-
-
-
-
-
-
-
-
