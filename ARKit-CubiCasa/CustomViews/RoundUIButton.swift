@@ -16,7 +16,7 @@ class RoundUIButton: UIButton {
         colorIt()
         border()
         roundIt()
-        addAnimation()
+        pulseAnimatoin()
     }
     
     private func adjustIcon() {
@@ -38,19 +38,5 @@ class RoundUIButton: UIButton {
     private func roundIt() {
         self.clipsToBounds = true
         self.layer.cornerRadius = self.layer.frame.size.width/2;
-    }
-    
-    
-    
-    private func addAnimation() {
-        let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.4
-        pulse.fromValue = 0.97
-        pulse.toValue = 1.0
-        pulse.autoreverses = true
-        pulse.repeatCount = .infinity
-        pulse.initialVelocity = 0.5
-        pulse.damping = 1.0
-        layer.add(pulse, forKey: nil)
     }
 }
