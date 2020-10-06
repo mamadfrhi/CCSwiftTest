@@ -117,7 +117,7 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		8726068D25289CA000C828F3 /* Main */ = {
+		8726068D25289CA000C828F3 /* AR */ = {
 			isa = PBXGroup;
 			children = (
 				87AE567725285A76006F0590 /* ARController.swift */,
@@ -127,7 +127,7 @@
 				878E76C1252B16CD00C4283B /* StateManager.swift */,
 				878E76C3252B549B00C4283B /* AREnum.swift */,
 			);
-			path = Main;
+			path = AR;
 			sourceTree = "<group>";
 		};
 		8728773A25286954007B322B /* App */ = {
@@ -143,7 +143,7 @@
 		8728773B25286965007B322B /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				8726068D25289CA000C828F3 /* Main */,
+				8726068D25289CA000C828F3 /* AR */,
 				872F9F5D2529B5A600A55D91 /* Map */,
 				877AADB7252A42D900023CA2 /* ImagePresenter */,
 			);
