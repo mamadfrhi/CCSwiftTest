@@ -55,7 +55,7 @@ class SnapShotDrawer: SnapShotsDraw {
     func drawSingleSnapshot(x: CGFloat, y: CGFloat, tag: Int, on view: UIView) {
         
         print("I'm placing dot at (\(x),\(y)) coordinate.")
-        let pointsize: CGFloat = 25
+        let pointsize: CGFloat = 40
         
         let dotView = UIView(frame: CGRect(x: x-pointsize/2,
                                            y: y-pointsize/2,
