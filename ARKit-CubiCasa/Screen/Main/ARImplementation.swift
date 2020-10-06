@@ -44,8 +44,6 @@ class ARImplementation: ARFeature {
 
         arController.arView.scene.anchors.append(anchorEntity)
         anchorEntity.addChild(myFinalObject)
-        
-        arController.stateManager.state = .canCaptureSnapshot
     }
     
     func takeSnapShot() {

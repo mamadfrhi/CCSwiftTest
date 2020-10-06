@@ -143,6 +143,12 @@ extension ARController: ARSessionDelegate {
             stateManager.manageViewWith(sessionState: .badState)
         }
     }
+    
+    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+        if stateManager.state == .objectIsReady {
+            stateManager.state = .canCaptureSnapshot
+        }
+    }
 }
 
 
