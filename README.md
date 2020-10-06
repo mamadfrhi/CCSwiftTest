@@ -1,3 +1,12 @@
+# My code challenge done 💪🏼
+# It's diagram of main view of the app
+# Implemented real ## clean ## code and ##  architecture using strong ## Design Patterns
+![alt text](http://s15.picofile.com/file/8410119642/CubiCasa_App_Diagram.png)
+
+
+
+
+
 # CCSwiftTest
 Coding assignment
 
