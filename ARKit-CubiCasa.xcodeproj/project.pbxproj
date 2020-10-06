@@ -120,8 +120,8 @@
 		8726068D25289CA000C828F3 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				87AE567725285A76006F0590 /* ARController.swift */,
 				8726068E25289CD200C828F3 /* ARFeature.swift */,
+				87AE567725285A76006F0590 /* ARController.swift */,
 				8708DFD725299AA100EAA5D8 /* ARImplementation.swift */,
 				87860BB42528777C00DC6732 /* AR_UI.swift */,
 				878E76C1252B16CD00C4283B /* StateManager.swift */,
