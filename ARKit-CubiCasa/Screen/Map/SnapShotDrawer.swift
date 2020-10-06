@@ -57,15 +57,12 @@ class SnapShotDrawer: SnapShotsDraw {
         print("I'm placing dot at (\(x),\(y)) coordinate.")
         let pointsize: CGFloat = 40
         
-        let dotView = UIView(frame: CGRect(x: x-pointsize/2,
+        let dotView = DotView(frame: CGRect(x: x-pointsize/2,
                                            y: y-pointsize/2,
                                            width: pointsize,
                                            height: pointsize))
-        dotView.backgroundColor = .white
-        dotView.layer.cornerRadius = pointsize/2
-        dotView.isUserInteractionEnabled = true
-        dotView.tag = tag
         
+        dotView.tag = tag
         dotView.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                             action: #selector(didTapDot(_:))))
         view.addSubview(dotView)
