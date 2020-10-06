@@ -12,6 +12,7 @@
 		8708DFDA2529A31400EAA5D8 /* BluredUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8708DFD92529A31400EAA5D8 /* BluredUILabel.swift */; };
 		87196924252C663100945326 /* UIView+pulseAnimatoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87196923252C663100945326 /* UIView+pulseAnimatoin.swift */; };
 		87196926252C665300945326 /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87196925252C665300945326 /* UIColor+random.swift */; };
+		87196928252CCA9100945326 /* Architecture.png in Resources */ = {isa = PBXBuildFile; fileRef = 87196927252CCA9100945326 /* Architecture.png */; };
 		8726068B252898B400C828F3 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87260689252898B400C828F3 /* MainCoordinator.swift */; };
 		8726068C252898B400C828F3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726068A252898B400C828F3 /* Coordinator.swift */; };
 		8726068F25289CD200C828F3 /* ARFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8726068E25289CD200C828F3 /* ARFeature.swift */; };
@@ -42,6 +43,7 @@
 		8708DFD92529A31400EAA5D8 /* BluredUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredUILabel.swift; sourceTree = "<group>"; };
 		87196923252C663100945326 /* UIView+pulseAnimatoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+pulseAnimatoin.swift"; sourceTree = "<group>"; };
 		87196925252C665300945326 /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
+		87196927252CCA9100945326 /* Architecture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Architecture.png; sourceTree = "<group>"; };
 		87260689252898B400C828F3 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		8726068A252898B400C828F3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8726068E25289CD200C828F3 /* ARFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFeature.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		8728773C25286975007B322B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				87196927252CCA9100945326 /* Architecture.png */,
 				877AADB3252A112A00023CA2 /* wateringcan.usdz */,
 				87AE567E25285A77006F0590 /* Assets.xcassets */,
 			);
@@ -301,6 +304,7 @@
 			files = (
 				87AE567F25285A77006F0590 /* Assets.xcassets in Resources */,
 				877AADB4252A112A00023CA2 /* wateringcan.usdz in Resources */,
+				87196928252CCA9100945326 /* Architecture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
